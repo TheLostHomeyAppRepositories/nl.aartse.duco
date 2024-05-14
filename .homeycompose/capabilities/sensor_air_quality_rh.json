@@ -1,7 +1,8 @@
 {
     "type": "number",
     "title": {
-        "en": "Air quality (RH)"
+        "en": "Air quality (RH)",
+        "nl": "Lucht kwaliteit (RH)"
     },
     "insights": true,
     "getable": true,

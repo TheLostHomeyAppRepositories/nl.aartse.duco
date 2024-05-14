@@ -12,7 +12,8 @@
     "nl": "DUCO"
   },
   "description": {
-    "en": "Duco, a Home Of Oxygen for a World of Oxygen."
+    "en": "Duco, a Home Of Oxygen for a World of Oxygen.",
+    "nl": "Duco, a Home Of Oxygen for a World of Oxygen."
   },
   "category": [
     "climate"
@@ -40,7 +41,8 @@
   "drivers": [
     {
       "name": {
-        "en": "DucoBox Silent Connect"
+        "en": "DucoBox Silent Connect",
+        "nl": "DucoBox Silent Connect"
       },
       "class": "fan",
       "capabilities": [
@@ -79,7 +81,8 @@
     },
     {
       "name": {
-        "en": "Humidity Box sensor"
+        "en": "Humidity Box sensor",
+        "nl": "Vocht Boxsensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -113,7 +116,8 @@
     },
     {
       "name": {
-        "en": "Humidity Room sensor"
+        "en": "Humidity Room sensor",
+        "nl": "Vocht Ruimtesensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -150,7 +154,8 @@
     "sensor_air_quality_rh": {
       "type": "number",
       "title": {
-        "en": "Air quality (RH)"
+        "en": "Air quality (RH)",
+        "nl": "Lucht kwaliteit (RH)"
       },
       "insights": true,
       "getable": true,
@@ -160,7 +165,8 @@
     "ventilation_flow_level_target": {
       "type": "number",
       "title": {
-        "en": "Flow level target"
+        "en": "Flow level target",
+        "nl": "Doel doorstroomniveau"
       },
       "insights": true,
       "getable": true,
@@ -170,7 +176,8 @@
     "ventilation_mode": {
       "type": "enum",
       "title": {
-        "en": "Mode"
+        "en": "Mode",
+        "nl": "Modus"
       },
       "getable": true,
       "setable": false,
@@ -194,7 +201,8 @@
     "ventilation_state": {
       "type": "enum",
       "title": {
-        "en": "State"
+        "en": "State",
+        "nl": "Stand"
       },
       "getable": true,
       "setable": true,
@@ -254,7 +262,8 @@
     "ventilation_time_state_end": {
       "type": "number",
       "title": {
-        "en": "Time state end"
+        "en": "Time state end",
+        "nl": "Eind tijd stand"
       },
       "getable": true,
       "setable": false,
@@ -263,7 +272,8 @@
     "ventilation_time_state_remain": {
       "type": "number",
       "title": {
-        "en": "Time state remain"
+        "en": "Time state duration",
+        "nl": "Stand looptijd"
       },
       "getable": true,
       "setable": false,

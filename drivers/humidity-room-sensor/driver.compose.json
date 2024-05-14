@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "Humidity Room sensor"
+    "en": "Humidity Room sensor",
+    "nl": "Vocht Ruimtesensor"
   },
   "class": "sensor",
   "capabilities": [

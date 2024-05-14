@@ -1,7 +1,8 @@
 {
     "type": "enum",
     "title": {
-        "en": "State"
+      "en": "State",
+      "nl": "Stand"
     },
     "getable": true,
     "setable": true,

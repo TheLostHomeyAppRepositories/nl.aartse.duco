@@ -1,7 +1,8 @@
 {
     "type": "number",
     "title": {
-        "en": "Time state end"
+        "en": "Time state end",
+        "nl": "Eind tijd stand"
     },
     "getable": true,
     "setable": false,

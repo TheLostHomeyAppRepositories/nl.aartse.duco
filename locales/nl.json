@@ -1,0 +1,10 @@
+{
+    "settings": {
+        "title": "App configuratie",
+        "hostname": "IP / Hostnaam DucoBox",
+        "save": "Opslaan"
+    },
+    "error": {
+        "hostname_not_set": "IP van de DucoBox is niet ingeseld in de instellingen van de app"
+    }
+}

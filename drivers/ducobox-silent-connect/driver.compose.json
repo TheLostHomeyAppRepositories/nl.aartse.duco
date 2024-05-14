@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "DucoBox Silent Connect"
+    "en": "DucoBox Silent Connect",
+    "nl": "DucoBox Silent Connect"
   },
   "class": "fan",
   "capabilities": [

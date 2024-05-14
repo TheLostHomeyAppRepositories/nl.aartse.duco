@@ -1,7 +1,8 @@
 {
     "type": "number",
     "title": {
-        "en": "Flow level target"
+        "en": "Flow level target",
+        "nl": "Doel doorstroomniveau"
     },
     "insights": true,
     "getable": true,

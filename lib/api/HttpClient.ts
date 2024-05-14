@@ -25,7 +25,7 @@ export default class HttpClient {
     get(path: string) : Promise <string> {
         return new Promise((resolve, reject) => {
             if (!this.hostname) {
-                return reject(new Error('Hostname not set in app settings'));
+                return reject(new Error(this.homey.__('error.hostname_not_set')));
             }
 
             const options = {
@@ -62,7 +62,7 @@ export default class HttpClient {
     post(path: string, postData: any) : Promise <string> {
         return new Promise((resolve, reject) => {
             if (!this.hostname) {
-                return reject(new Error('Hostname not set in app settings'));
+                return reject(new Error(this.homey.__('error.hostname_not_set')));
             }
 
             const body = JSON.stringify(postData);

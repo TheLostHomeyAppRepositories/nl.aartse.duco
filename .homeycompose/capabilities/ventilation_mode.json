@@ -1,7 +1,8 @@
 {
     "type": "enum",
     "title": {
-        "en": "Mode"
+      "en": "Mode",
+      "nl": "Modus"
     },
     "getable": true,
     "setable": false,

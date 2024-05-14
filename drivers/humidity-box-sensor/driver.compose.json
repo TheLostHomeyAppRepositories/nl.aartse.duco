@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "Humidity Box sensor"
+    "en": "Humidity Box sensor",
+    "nl": "Vocht Boxsensor"
   },
   "class": "sensor",
   "capabilities": [

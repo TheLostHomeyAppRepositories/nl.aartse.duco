@@ -9,16 +9,12 @@
       <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
     </header>
 
-    <fieldset class="homey-form-fieldset">
-      <legend class="homey-form-legend">My Settings</legend>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="hostname" data-i18n="settings.hostname">IP / Hostname Ducobox</label>
+      <input class="homey-form-input" id="hostname" type="text" value="" />
+    </div>
 
-      <div class="homey-form-group">
-        <label class="homey-form-label" for="hostname">IP / Hostname Ducobox</label>
-        <input class="homey-form-input" id="hostname" type="text" value="" />
-      </div>
-    </fieldset>
-
-    <button id="save" class="homey-button-primary-full">Save changes</button>
+    <button id="save" class="homey-button-primary-full" data-i18n="settings.save">Save changes</button>
 
     <script type="text/javascript">
       function onHomeyReady(Homey) {
