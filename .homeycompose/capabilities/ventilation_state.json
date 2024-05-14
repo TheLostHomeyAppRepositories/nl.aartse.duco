@@ -1,0 +1,61 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "State"
+    },
+    "getable": true,
+    "setable": true,
+    "uiComponent": "picker",
+    "icon": "/assets/capabilities/ventilation_state.svg",
+    "values": [
+        {
+          "id": "AUTO",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "MAN1",
+          "title": {
+            "en": "Manual 1"
+          }
+        },
+        {
+          "id": "MAN2",
+          "title": {
+            "en": "Manual 2"
+          }
+        },
+        {
+          "id": "MAN3",
+          "title": {
+            "en": "Manual 3"
+          }
+        },
+        {
+          "id": "EMPT",
+          "title": {
+            "en": "EMPT"
+          }
+        },
+        {
+          "id": "CNT1",
+          "title": {
+            "en": "Continue 1"
+          }
+        },
+        {
+          "id": "CNT2",
+          "title": {
+            "en": "Continue 2"
+          }
+        },
+        {
+          "id": "CNT3",
+          "title": {
+            "en": "Continue 3"
+          }
+        }
+    ]
+}
+  

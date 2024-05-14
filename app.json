@@ -1,0 +1,273 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "nl.aartse.duco",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "DUCO",
+    "nl": "DUCO"
+  },
+  "description": {
+    "en": "Duco, a Home Of Oxygen for a World of Oxygen."
+  },
+  "category": [
+    "climate"
+  ],
+  "source": "https://github.com/aartse/athom.duco",
+  "brandColor": "#50b848",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Jeroen Aartse",
+    "email": "jeroen@webdesigntilburg.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Jeroen Aartse",
+        "email": "jeroen@webdesigntilburg.nl"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "DucoBox Silent Connect"
+      },
+      "class": "fan",
+      "capabilities": [
+        "ventilation_state",
+        "ventilation_time_state_remain",
+        "ventilation_time_state_end",
+        "ventilation_mode",
+        "ventilation_flow_level_target",
+        "sensor_air_quality_rh"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/ducobox-silent-connect/assets/images/small.png",
+        "large": "/drivers/ducobox-silent-connect/assets/images/large.png",
+        "xlarge": "/drivers/ducobox-silent-connect/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "ducobox-silent-connect"
+    },
+    {
+      "name": {
+        "en": "Humidity Box sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "sensor_air_quality_rh"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/humidity-box-sensor/assets/images/small.png",
+        "large": "/drivers/humidity-box-sensor/assets/images/large.png",
+        "xlarge": "/drivers/humidity-box-sensor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "humidity-box-sensor"
+    },
+    {
+      "name": {
+        "en": "Humidity Room sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "sensor_air_quality_rh"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/humidity-room-sensor/assets/images/small.png",
+        "large": "/drivers/humidity-room-sensor/assets/images/large.png",
+        "xlarge": "/drivers/humidity-room-sensor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "humidity-room-sensor"
+    }
+  ],
+  "capabilities": {
+    "sensor_air_quality_rh": {
+      "type": "number",
+      "title": {
+        "en": "Air quality (RH)"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/sensor_air_quality_rh.svg"
+    },
+    "ventilation_flow_level_target": {
+      "type": "number",
+      "title": {
+        "en": "Flow level target"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/ventilation_flow_level_target.svg"
+    },
+    "ventilation_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/ventilation_mode.svg",
+      "values": [
+        {
+          "id": "AUTO",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "MANU",
+          "title": {
+            "en": "Manual"
+          }
+        }
+      ]
+    },
+    "ventilation_state": {
+      "type": "enum",
+      "title": {
+        "en": "State"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "icon": "/assets/capabilities/ventilation_state.svg",
+      "values": [
+        {
+          "id": "AUTO",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "MAN1",
+          "title": {
+            "en": "Manual 1"
+          }
+        },
+        {
+          "id": "MAN2",
+          "title": {
+            "en": "Manual 2"
+          }
+        },
+        {
+          "id": "MAN3",
+          "title": {
+            "en": "Manual 3"
+          }
+        },
+        {
+          "id": "EMPT",
+          "title": {
+            "en": "EMPT"
+          }
+        },
+        {
+          "id": "CNT1",
+          "title": {
+            "en": "Continue 1"
+          }
+        },
+        {
+          "id": "CNT2",
+          "title": {
+            "en": "Continue 2"
+          }
+        },
+        {
+          "id": "CNT3",
+          "title": {
+            "en": "Continue 3"
+          }
+        }
+      ]
+    },
+    "ventilation_time_state_end": {
+      "type": "number",
+      "title": {
+        "en": "Time state end"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/time_state_end.svg"
+    },
+    "ventilation_time_state_remain": {
+      "type": "number",
+      "title": {
+        "en": "Time state remain"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/time_state_remain.svg"
+    }
+  }
+}

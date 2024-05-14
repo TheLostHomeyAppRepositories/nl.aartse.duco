@@ -1,0 +1,25 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "Mode"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "/assets/capabilities/ventilation_mode.svg",
+    "values": [
+        {
+          "id": "AUTO",
+          "title": {
+            "en": "Auto"
+          }
+        },
+        {
+          "id": "MANU",
+          "title": {
+            "en": "Manual"
+          }
+        }
+    ]
+}
+  

@@ -1,0 +1,10 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Time state end"
+    },
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/capabilities/time_state_end.svg"
+}
+  

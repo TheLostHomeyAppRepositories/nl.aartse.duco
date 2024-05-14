@@ -1,0 +1,11 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Air quality (RH)"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/capabilities/sensor_air_quality_rh.svg"
+}
+  

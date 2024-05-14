@@ -1,0 +1,11 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Flow level target"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/capabilities/ventilation_flow_level_target.svg"
+}
+  

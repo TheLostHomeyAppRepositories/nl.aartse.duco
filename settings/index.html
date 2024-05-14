@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+  </head>
+  <body>
+    <header class="homey-header">
+      <h1 class="homey-title" data-i18n="settings.title"></h1>
+      <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
+    </header>
+
+    <fieldset class="homey-form-fieldset">
+      <legend class="homey-form-legend">My Settings</legend>
+
+      <div class="homey-form-group">
+        <label class="homey-form-label" for="hostname">IP / Hostname Ducobox</label>
+        <input class="homey-form-input" id="hostname" type="text" value="" />
+      </div>
+    </fieldset>
+
+    <button id="save" class="homey-button-primary-full">Save changes</button>
+
+    <script type="text/javascript">
+      function onHomeyReady(Homey) {
+        Homey.ready();
+
+        var hostnameElement = document.getElementById("hostname");
+        var saveElement = document.getElementById("save");
+
+        Homey.get("hostname", function (err, username) {
+          if (err) {
+            return Homey.alert(err);
+          }
+
+          hostnameElement.value = username;
+        });
+
+        saveElement.addEventListener("click", function (e) {
+          Homey.set("hostname", hostnameElement.value, function (err) {
+            if (err) {
+              return Homey.alert(err);
+            }
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

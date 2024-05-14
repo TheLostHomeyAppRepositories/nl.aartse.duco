@@ -1,0 +1,39 @@
+{
+  "id": "nl.aartse.duco",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "DUCO",
+    "nl": "DUCO"
+  },
+  "description": {
+    "en": "Duco, a Home Of Oxygen for a World of Oxygen."
+  },
+  "category": [
+    "climate"
+  ],
+  "source": "https://github.com/aartse/athom.duco",
+  "brandColor": "#50b848",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Jeroen Aartse",
+    "email": "jeroen@webdesigntilburg.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Jeroen Aartse",
+        "email": "jeroen@webdesigntilburg.nl"
+      }
+    ]
+  }
+}

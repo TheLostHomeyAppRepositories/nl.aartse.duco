@@ -1,0 +1,1 @@
+This app adds support for DUCO ventilation units and control components in Homey. DucoBox Silent Connect with a Connectivity Board is supported for now.

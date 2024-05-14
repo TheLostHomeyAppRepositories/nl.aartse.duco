@@ -1,0 +1,9 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Time state remain"
+    },
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/capabilities/time_state_remain.svg"
+}
