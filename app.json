@@ -187,13 +187,15 @@
         {
           "id": "AUTO",
           "title": {
-            "en": "Auto"
+            "en": "Auto",
+            "nl": "Automatisch"
           }
         },
         {
           "id": "MANU",
           "title": {
-            "en": "Manual"
+            "en": "Manual",
+            "nl": "Handmatig"
           }
         }
       ]
@@ -212,49 +214,57 @@
         {
           "id": "AUTO",
           "title": {
-            "en": "Auto"
+            "en": "Auto",
+            "nl": "Automatisch"
           }
         },
         {
           "id": "MAN1",
           "title": {
-            "en": "Manual 1"
+            "en": "Manual 1",
+            "nl": "Tijdelijk 1"
           }
         },
         {
           "id": "MAN2",
           "title": {
-            "en": "Manual 2"
+            "en": "Manual 2",
+            "nl": "Tijdelijk 2"
           }
         },
         {
           "id": "MAN3",
           "title": {
-            "en": "Manual 3"
-          }
-        },
-        {
-          "id": "EMPT",
-          "title": {
-            "en": "EMPT"
+            "en": "Manual 3",
+            "nl": "Tijdelijk 3"
           }
         },
         {
           "id": "CNT1",
           "title": {
-            "en": "Continue 1"
+            "en": "Continue 1",
+            "nl": "Permanent 1"
           }
         },
         {
           "id": "CNT2",
           "title": {
-            "en": "Continue 2"
+            "en": "Continue 2",
+            "nl": "Permanent 2"
           }
         },
         {
           "id": "CNT3",
           "title": {
-            "en": "Continue 3"
+            "en": "Continue 3",
+            "nl": "Permanent 3"
+          }
+        },
+        {
+          "id": "EMPT",
+          "title": {
+            "en": "Absence",
+            "nl": "Afwezigheid"
           }
         }
       ]
