@@ -26,12 +26,6 @@ export default class UpdateListener {
 
         const onSettingsChange = (field: any) => {
             if ('hostname' === field) {
-                // stop the listener interval
-                if (this.timeoutId) {
-                    this.homey.clearInterval(this.timeoutId);
-                    this.timeoutId = null;
-                }
-
                 // restart listener with a timeout to make sure the hostname is changed
                 this.homey.setTimeout(timeoutCallback, 1000);
             }
@@ -41,6 +35,12 @@ export default class UpdateListener {
     }
 
     startListener() {
+        // stop the listener interval
+        if (this.timeoutId) {
+            this.homey.clearInterval(this.timeoutId);
+            this.timeoutId = null;
+        }
+
         // use polling to update the data
         const timeoutCallback = () => {
             this.updateDevices();
