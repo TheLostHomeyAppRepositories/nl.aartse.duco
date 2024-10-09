@@ -1,0 +1,10 @@
+{
+  "triggers": [],
+  "conditions": [],
+  "actions": [
+    {
+      "$extends":"change_ventilation_state",
+      "id": "ducobox-silent-connect__change_ventilation_state"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+    "title": {
+        "en": "Change ventilation state to",
+        "nl": "Verander ventilatie stand naar"
+    },
+    "titleFormatted": {
+        "en": "Change ventilation state to [[ventilation_state]]",
+        "nl": "Verander ventilatie stand naar [[ventilation_state]]"
+    },
+    "args": [
+        {
+            "type": "dropdown",
+            "name": "ventilation_state",
+            "values": [
+                {
+                    "id": "AUTO",
+                    "label": {
+                        "en": "Auto",
+                        "nl": "Automatisch"
+                    }
+                },
+                {
+                    "id": "AUT1",
+                    "label": {
+                        "en": "Auto 1",
+                        "nl": "Automatisch 1"
+                    }
+                },
+                {
+                    "id": "AUT2",
+                    "label": {
+                        "en": "Auto 2",
+                        "nl": "Automatisch 2"
+                    }
+                },
+                {
+                    "id": "AUT3",
+                    "label": {
+                        "en": "Auto 3",
+                        "nl": "Automatisch 3"
+                    }
+                },
+                {
+                    "id": "MAN1",
+                    "label": {
+                        "en": "Manual 1",
+                        "nl": "Tijdelijk 1"
+                    }
+                },
+                {
+                    "id": "MAN2",
+                    "label": {
+                        "en": "Manual 2",
+                        "nl": "Tijdelijk 2"
+                    }
+                },
+                {
+                    "id": "MAN3",
+                    "label": {
+                        "en": "Manual 3",
+                        "nl": "Tijdelijk 3"
+                    }
+                },
+                {
+                    "id": "CNT1",
+                    "label": {
+                        "en": "Continue 1",
+                        "nl": "Permanent 1"
+                    }
+                },
+                {
+                    "id": "CNT2",
+                    "label": {
+                        "en": "Continue 2",
+                        "nl": "Permanent 2"
+                    }
+                },
+                {
+                    "id": "CNT3",
+                    "label": {
+                        "en": "Continue 3",
+                        "nl": "Permanent 3"
+                    }
+                },
+                {
+                    "id": "EMPT",
+                    "label": {
+                        "en": "Absence",
+                        "nl": "Afwezigheid"
+                    }
+                },
+                {
+                    "id": "MAN1x2",
+                    "label": {
+                        "en": "Manual 1x2",
+                        "nl": "Tijdelijk 1x2"
+                    }
+                },
+                {
+                    "id": "MAN2x2",
+                    "label": {
+                        "en": "Manual 2x2",
+                        "nl": "Tijdelijk 2x2"
+                    }
+                },
+                {
+                    "id": "MAN3x2",
+                    "label": {
+                        "en": "Manual 3x2",
+                        "nl": "Tijdelijk 3x2"
+                    }
+                },
+                {
+                    "id": "MAN1x3",
+                    "label": {
+                        "en": "Manual 1x3",
+                        "nl": "Tijdelijk 1x3"
+                    }
+                },
+                {
+                    "id": "MAN2x3",
+                    "label": {
+                        "en": "Manual 2x3",
+                        "nl": "Tijdelijk 2x3"
+                    }
+                },
+                {
+                    "id": "MAN3x3",
+                    "label": {
+                        "en": "Manual 3x3",
+                        "nl": "Tijdelijk 3x3"
+                    }
+                }
+            ]
+        }
+    ]
+}
