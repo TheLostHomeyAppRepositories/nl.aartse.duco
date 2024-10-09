@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "added ducobox silent connect, roomsensor RH and boxsensor RH"
+  },
+  "1.1.0": {
+    "en": "added flow action card to change the ventilation state"
   }
 }
