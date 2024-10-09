@@ -40,12 +40,12 @@ class DucoboxSilentConnectDevice extends DucoDevice {
   }
 
   updateByNode(node: NodeInterface): void {
-    this.setCapabilityValue('ventilation_state', node.Ventilation.State.Val);
-    this.setCapabilityValue('ventilation_time_state_remain', node.Ventilation.TimeStateRemain.Val);
-    this.setCapabilityValue('ventilation_time_state_end', node.Ventilation.TimeStateEnd.Val);
-    this.setCapabilityValue('ventilation_mode', node.Ventilation.Mode.Val);
-    this.setCapabilityValue('ventilation_flow_level_target', node.Ventilation.FlowLvlTgt.Val);
-    this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val);
+    this.setCapabilityValue('ventilation_state', node.Ventilation.State.Val).catch((reason) => this.error(reason));
+    this.setCapabilityValue('ventilation_time_state_remain', node.Ventilation.TimeStateRemain.Val).catch((reason) => this.error(reason));
+    this.setCapabilityValue('ventilation_time_state_end', node.Ventilation.TimeStateEnd.Val).catch((reason) => this.error(reason));
+    this.setCapabilityValue('ventilation_mode', node.Ventilation.Mode.Val).catch((reason) => this.error(reason));
+    this.setCapabilityValue('ventilation_flow_level_target', node.Ventilation.FlowLvlTgt.Val).catch((reason) => this.error(reason));
+    this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val).catch((reason) => this.error(reason));
   }
 }
 

@@ -1,28 +1,34 @@
 {
-    "type": "enum",
-    "title": {
-      "en": "Mode",
-      "nl": "Modus"
+  "type": "enum",
+  "title": {
+    "en": "Mode",
+    "nl": "Modus"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/ventilation_mode.svg",
+  "values": [
+    {
+      "id": "AUTO",
+      "title": {
+        "en": "Auto",
+        "nl": "Automatisch"
+      }
     },
-    "getable": true,
-    "setable": false,
-    "uiComponent": "sensor",
-    "icon": "/assets/capabilities/ventilation_mode.svg",
-    "values": [
-        {
-          "id": "AUTO",
-          "title": {
-            "en": "Auto",
-            "nl": "Automatisch"
-          }
-        },
-        {
-          "id": "MANU",
-          "title": {
-            "en": "Manual",
-            "nl": "Handmatig"
-          }
-        }
-    ]
+    {
+      "id": "MANU",
+      "title": {
+        "en": "Manual",
+        "nl": "Handmatig"
+      }
+    },
+    {
+      "id": "-",
+      "title": {
+        "en": "Unknown",
+        "nl": "Onbekend"
+      }
+    }
+  ]
 }
-  
