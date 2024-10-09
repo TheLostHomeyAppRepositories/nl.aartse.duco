@@ -24,6 +24,41 @@
       }
     },
     {
+      "id": "OVRL",
+      "title": {
+        "en": "OVRL",
+        "nl": "OVRL"
+      }
+    },
+    {
+      "id": "EXTN",
+      "title": {
+        "en": "EXTN",
+        "nl": "EXTN"
+      }
+    },
+    {
+      "id": "COOL",
+      "title": {
+        "en": "COOL",
+        "nl": "COOL"
+      }
+    },
+    {
+      "id": "N/A",
+      "title": {
+        "en": "N/A",
+        "nl": "N/A"
+      }
+    },
+    {
+      "id": "DSBL",
+      "title": {
+        "en": "DSBL",
+        "nl": "DSBL"
+      }
+    },
+    {
       "id": "-",
       "title": {
         "en": "Unknown",

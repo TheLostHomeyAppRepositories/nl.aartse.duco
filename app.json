@@ -197,6 +197,48 @@
             "en": "Manual",
             "nl": "Handmatig"
           }
+        },
+        {
+          "id": "OVRL",
+          "title": {
+            "en": "OVRL",
+            "nl": "OVRL"
+          }
+        },
+        {
+          "id": "EXTN",
+          "title": {
+            "en": "EXTN",
+            "nl": "EXTN"
+          }
+        },
+        {
+          "id": "COOL",
+          "title": {
+            "en": "COOL",
+            "nl": "COOL"
+          }
+        },
+        {
+          "id": "N/A",
+          "title": {
+            "en": "N/A",
+            "nl": "N/A"
+          }
+        },
+        {
+          "id": "DSBL",
+          "title": {
+            "en": "DSBL",
+            "nl": "DSBL"
+          }
+        },
+        {
+          "id": "-",
+          "title": {
+            "en": "Unknown",
+            "nl": "Onbekend"
+          }
         }
       ]
     },
@@ -216,6 +258,27 @@
           "title": {
             "en": "Auto",
             "nl": "Automatisch"
+          }
+        },
+        {
+          "id": "AUT1",
+          "title": {
+            "en": "Auto 1",
+            "nl": "Automatisch 1"
+          }
+        },
+        {
+          "id": "AUT2",
+          "title": {
+            "en": "Auto 2",
+            "nl": "Automatisch 2"
+          }
+        },
+        {
+          "id": "AUT3",
+          "title": {
+            "en": "Auto 3",
+            "nl": "Automatisch 3"
           }
         },
         {
@@ -265,6 +328,55 @@
           "title": {
             "en": "Absence",
             "nl": "Afwezigheid"
+          }
+        },
+        {
+          "id": "MAN1x2",
+          "title": {
+            "en": "Manual 1x2",
+            "nl": "Tijdelijk 1x2"
+          }
+        },
+        {
+          "id": "MAN2x2",
+          "title": {
+            "en": "Manual 2x2",
+            "nl": "Tijdelijk 2x2"
+          }
+        },
+        {
+          "id": "MAN3x2",
+          "title": {
+            "en": "Manual 3x2",
+            "nl": "Tijdelijk 3x2"
+          }
+        },
+        {
+          "id": "MAN1x3",
+          "title": {
+            "en": "Manual 1x3",
+            "nl": "Tijdelijk 1x3"
+          }
+        },
+        {
+          "id": "MAN2x3",
+          "title": {
+            "en": "Manual 2x3",
+            "nl": "Tijdelijk 2x3"
+          }
+        },
+        {
+          "id": "MAN3x3",
+          "title": {
+            "en": "Manual 3x3",
+            "nl": "Tijdelijk 3x3"
+          }
+        },
+        {
+          "id": "-",
+          "title": {
+            "en": "Unknown",
+            "nl": "Unknown"
           }
         }
       ]

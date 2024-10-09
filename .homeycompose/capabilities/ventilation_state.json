@@ -127,6 +127,13 @@
         "en": "Manual 3x3",
         "nl": "Tijdelijk 3x3"
       }
+    },
+    {
+      "id": "-",
+      "title": {
+        "en": "Unknown",
+        "nl": "Unknown"
+      }
     }
   ]
 }
