@@ -17,7 +17,9 @@ class HumidityBoxSensorDevice extends DucoDevice {
   }
 
   updateByNode(node: NodeInterface): void {
-    this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val);
+    if (node.Sensor && node.Sensor.IaqRh) {
+      this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val).catch((reason) => this.error(reason));
+    }
   }
 }
 

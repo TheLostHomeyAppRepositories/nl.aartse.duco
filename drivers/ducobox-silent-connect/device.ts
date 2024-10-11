@@ -40,12 +40,29 @@ class DucoboxSilentConnectDevice extends DucoDevice {
   }
 
   updateByNode(node: NodeInterface): void {
-    this.setCapabilityValue('ventilation_state', node.Ventilation.State.Val).catch((reason) => this.error(reason));
-    this.setCapabilityValue('ventilation_time_state_remain', node.Ventilation.TimeStateRemain.Val).catch((reason) => this.error(reason));
-    this.setCapabilityValue('ventilation_time_state_end', node.Ventilation.TimeStateEnd.Val).catch((reason) => this.error(reason));
-    this.setCapabilityValue('ventilation_mode', node.Ventilation.Mode.Val).catch((reason) => this.error(reason));
-    this.setCapabilityValue('ventilation_flow_level_target', node.Ventilation.FlowLvlTgt.Val).catch((reason) => this.error(reason));
-    this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val).catch((reason) => this.error(reason));
+    if (node.Ventilation && node.Ventilation.State) {
+      this.setCapabilityValue('ventilation_state', node.Ventilation.State.Val).catch((reason) => this.error(reason));
+    }
+
+    if (node.Ventilation && node.Ventilation.TimeStateRemain) {
+      this.setCapabilityValue('ventilation_time_state_remain', node.Ventilation.TimeStateRemain.Val).catch((reason) => this.error(reason));
+    }
+
+    if (node.Ventilation && node.Ventilation.TimeStateEnd) {
+      this.setCapabilityValue('ventilation_time_state_end', node.Ventilation.TimeStateEnd.Val).catch((reason) => this.error(reason));
+    }
+
+    if (node.Ventilation && node.Ventilation.Mode) {
+      this.setCapabilityValue('ventilation_mode', node.Ventilation.Mode.Val).catch((reason) => this.error(reason));
+    }
+
+    if (node.Ventilation && node.Ventilation.FlowLvlTgt) {
+      this.setCapabilityValue('ventilation_flow_level_target', node.Ventilation.FlowLvlTgt.Val).catch((reason) => this.error(reason));
+    }
+
+    if (node.Sensor && node.Sensor.IaqRh) {
+      this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val).catch((reason) => this.error(reason));
+    }
   }
 }
 
