@@ -1,0 +1,11 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Air quality (CO2)",
+        "nl": "Lucht kwaliteit (CO2)"
+    },
+    "insights": true,
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/capabilities/sensor_air_quality_co2.svg"
+}

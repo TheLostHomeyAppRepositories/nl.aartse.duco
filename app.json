@@ -198,7 +198,8 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
-        "sensor_air_quality_rh"
+        "sensor_air_quality_rh",
+        "sensor_air_quality_co2"
       ],
       "platforms": [
         "local"
@@ -298,6 +299,17 @@
     }
   ],
   "capabilities": {
+    "sensor_air_quality_co2": {
+      "type": "number",
+      "title": {
+        "en": "Air quality (CO2)",
+        "nl": "Lucht kwaliteit (CO2)"
+      },
+      "insights": true,
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/sensor_air_quality_co2.svg"
+    },
     "sensor_air_quality_rh": {
       "type": "number",
       "title": {

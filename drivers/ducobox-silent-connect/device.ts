@@ -30,6 +30,9 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     if (!this.hasCapability('sensor_air_quality_rh')) {
       await this.addCapability('sensor_air_quality_rh');
     }
+    if (!this.hasCapability('sensor_air_quality_co2')) {
+      await this.addCapability('sensor_air_quality_co2');
+    }
 
     this.registerCapabilityListener('ventilation_state', (value) => {
       return this.ducoApi.postNodeAction(this.getData().id, {
@@ -62,6 +65,10 @@ class DucoboxSilentConnectDevice extends DucoDevice {
 
     if (node.Sensor && node.Sensor.IaqRh) {
       this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqRh.Val).catch((reason) => this.error(reason));
+    }
+
+    if (node.Sensor && node.Sensor.IaqCo2) {
+      this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqCo2.Val).catch((reason) => this.error(reason));
     }
   }
 }

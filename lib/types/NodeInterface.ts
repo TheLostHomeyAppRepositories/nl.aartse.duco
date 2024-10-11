@@ -28,23 +28,26 @@ interface NodeInterface {
     Ventilation: {
         State: {
             Val: string;
-        };
+        }|undefined;
         TimeStateRemain: {
             Val: number;
-        };
+        }|undefined;
         TimeStateEnd: {
             Val: number;
-        };
+        }|undefined;
         Mode: {
             Val: string;
-        };
+        }|undefined;
         FlowLvlTgt: {
             Val: number;
-        };
-    };
+        }|undefined;
+    }|undefined;
     Sensor: {
         IaqRh: {
             Val: number;
-        };
-    };
+        }|undefined;
+        IaqCo2: {
+            Val: number;
+        }|undefined;
+    }|undefined;
 }
