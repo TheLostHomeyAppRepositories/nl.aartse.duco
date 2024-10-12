@@ -68,7 +68,7 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     }
 
     if (node.Sensor && node.Sensor.IaqCo2) {
-      this.setCapabilityValue('sensor_air_quality_rh', node.Sensor.IaqCo2.Val).catch((reason) => this.error(reason));
+      this.setCapabilityValue('sensor_air_quality_co2', node.Sensor.IaqCo2.Val).catch((reason) => this.error(reason));
     }
   }
 }

@@ -38,6 +38,189 @@
       }
     ]
   },
+  "drivers": [
+    {
+      "name": {
+        "en": "CO2 Box sensor",
+        "nl": "CO2 Boxsensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "sensor_air_quality_co2"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/co2-box-sensor/assets/images/small.png",
+        "large": "/drivers/co2-box-sensor/assets/images/large.png",
+        "xlarge": "/drivers/co2-box-sensor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "co2-box-sensor"
+    },
+    {
+      "name": {
+        "en": "CO2 Room sensor",
+        "nl": "CO2 Ruimtesensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "sensor_air_quality_co2"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/co2-room-sensor/assets/images/small.png",
+        "large": "/drivers/co2-room-sensor/assets/images/large.png",
+        "xlarge": "/drivers/co2-room-sensor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "co2-room-sensor"
+    },
+    {
+      "name": {
+        "en": "DucoBox Silent Connect",
+        "nl": "DucoBox Silent Connect"
+      },
+      "class": "fan",
+      "capabilities": [
+        "ventilation_state",
+        "ventilation_time_state_remain",
+        "ventilation_time_state_end",
+        "ventilation_mode",
+        "ventilation_flow_level_target",
+        "sensor_air_quality_rh",
+        "sensor_air_quality_co2"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/ducobox-silent-connect/assets/images/small.png",
+        "large": "/drivers/ducobox-silent-connect/assets/images/large.png",
+        "xlarge": "/drivers/ducobox-silent-connect/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "ducobox-silent-connect"
+    },
+    {
+      "name": {
+        "en": "Humidity Box sensor",
+        "nl": "Vocht Boxsensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "sensor_air_quality_rh"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/humidity-box-sensor/assets/images/small.png",
+        "large": "/drivers/humidity-box-sensor/assets/images/large.png",
+        "xlarge": "/drivers/humidity-box-sensor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "humidity-box-sensor"
+    },
+    {
+      "name": {
+        "en": "Humidity Room sensor",
+        "nl": "Vocht Ruimtesensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "sensor_air_quality_rh"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/humidity-room-sensor/assets/images/small.png",
+        "large": "/drivers/humidity-room-sensor/assets/images/large.png",
+        "xlarge": "/drivers/humidity-room-sensor/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "humidity-room-sensor"
+    }
+  ],
   "flow": {
     "actions": [
       {
@@ -185,119 +368,6 @@
       }
     ]
   },
-  "drivers": [
-    {
-      "name": {
-        "en": "DucoBox Silent Connect",
-        "nl": "DucoBox Silent Connect"
-      },
-      "class": "fan",
-      "capabilities": [
-        "ventilation_state",
-        "ventilation_time_state_remain",
-        "ventilation_time_state_end",
-        "ventilation_mode",
-        "ventilation_flow_level_target",
-        "sensor_air_quality_rh",
-        "sensor_air_quality_co2"
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/ducobox-silent-connect/assets/images/small.png",
-        "large": "/drivers/ducobox-silent-connect/assets/images/large.png",
-        "xlarge": "/drivers/ducobox-silent-connect/assets/images/xlarge.png"
-      },
-      "pair": [
-        {
-          "id": "list_my_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_my_devices"
-          }
-        },
-        {
-          "id": "add_my_devices",
-          "template": "add_devices"
-        }
-      ],
-      "id": "ducobox-silent-connect"
-    },
-    {
-      "name": {
-        "en": "Humidity Box sensor",
-        "nl": "Vocht Boxsensor"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "sensor_air_quality_rh"
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/humidity-box-sensor/assets/images/small.png",
-        "large": "/drivers/humidity-box-sensor/assets/images/large.png",
-        "xlarge": "/drivers/humidity-box-sensor/assets/images/xlarge.png"
-      },
-      "pair": [
-        {
-          "id": "list_my_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_my_devices"
-          }
-        },
-        {
-          "id": "add_my_devices",
-          "template": "add_devices"
-        }
-      ],
-      "id": "humidity-box-sensor"
-    },
-    {
-      "name": {
-        "en": "Humidity Room sensor",
-        "nl": "Vocht Ruimtesensor"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "sensor_air_quality_rh"
-      ],
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/humidity-room-sensor/assets/images/small.png",
-        "large": "/drivers/humidity-room-sensor/assets/images/large.png",
-        "xlarge": "/drivers/humidity-room-sensor/assets/images/xlarge.png"
-      },
-      "pair": [
-        {
-          "id": "list_my_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_my_devices"
-          }
-        },
-        {
-          "id": "add_my_devices",
-          "template": "add_devices"
-        }
-      ],
-      "id": "humidity-room-sensor"
-    }
-  ],
   "capabilities": {
     "sensor_air_quality_co2": {
       "type": "number",
@@ -535,7 +605,7 @@
           "id": "-",
           "title": {
             "en": "Unknown",
-            "nl": "Unknown"
+            "nl": "Onbekend"
           }
         }
       ]

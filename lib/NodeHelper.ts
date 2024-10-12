@@ -8,8 +8,12 @@ export default class NodeHelper {
                 return ['ducobox-silent-connect'];
             case 'BSRH':
                 return ['humidity-box-sensor'];
+            case 'BSCO2':
+                return ['co2-box-sensor'];
             case 'UCRH':
                 return ['humidity-room-sensor'];
+            case 'UCCO2':
+                return ['co2-room-sensor'];
         }
 
         return [];
