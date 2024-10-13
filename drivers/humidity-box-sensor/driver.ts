@@ -6,7 +6,7 @@ class HumidityBoxSensorDriver extends DucoDriver {
   ducoApi!: DucoApi
 
   async onInit() {
-    this.ducoApi = new DucoApi(this.homey);
+    this.ducoApi = DucoApi.create(this.homey);
   }
 
   async onPairListDevices() {

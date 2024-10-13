@@ -9,9 +9,9 @@ export default class DucoApp extends Homey.App {
   ducoApi!: DucoApi
 
   async onInit() {
-    this.ducoApi = new DucoApi(this.homey);
+    this.ducoApi = DucoApi.create(this.homey);
 
-    const updateListner = new UpdateListener(this.homey);
+    const updateListner = UpdateListener.create(this.homey);
     updateListner.startListener();
 
     const changeVentilationStateAction = this.homey.flow.getActionCard('ducobox-silent-connect__change_ventilation_state');
@@ -20,7 +20,8 @@ export default class DucoApp extends Homey.App {
         Action: NodeActionEnum.SetVentilationState,
         Val: args.State
       }).then(() => {
-        updateListner.updateDevices();
+        // restart listener with a timeout to make sure the has updated the values
+        updateListner.startListener(10000);
       });
     });
   }

@@ -10,7 +10,7 @@
     "tokens": [
       {
         "name": "old_value",
-        "type": "number",
+        "type": "string",
         "title": {
           "en": "Old value time current state end",
           "nl": "Oude waarde eind tijd huidige stand"
@@ -18,7 +18,7 @@
       },
       {
         "name": "new_value",
-        "type": "number",
+        "type": "string",
         "title": {
           "en": "New value time current state end",
           "nl": "Nieuwe waarde eind tijd huidige stand"

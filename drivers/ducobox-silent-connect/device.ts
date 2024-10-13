@@ -4,13 +4,14 @@ import DucoApi from '../../lib/api/DucoApi';
 import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
 import DucoBoxCapabilityValues from '../../lib/types/DucoBoxCapabilityValues';
 import FlowHelper from '../../lib/FlowHelper';
+import UpdateListener from '../../lib/UpdateListner';
 
 class DucoboxSilentConnectDevice extends DucoDevice {
   ducoApi!: DucoApi
 
   async onInit() {
     await this.initCapabilities();
-    this.ducoApi = new DucoApi(this.homey);
+    this.ducoApi = DucoApi.create(this.homey);
   }
 
   async initCapabilities() {
@@ -40,6 +41,9 @@ class DucoboxSilentConnectDevice extends DucoDevice {
       return this.ducoApi.postNodeAction(this.getData().id, {
         Action: NodeActionEnum.SetVentilationState,
         Val: value
+      }).then(() => {
+        // restart listener with a timeout to make sure the has updated the values
+        UpdateListener.create(this.homey).startListener(10000);
       });
     });
   }
@@ -59,7 +63,7 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     Promise.all([
       this.setCapabilityValue('ventilation_state', (node.Ventilation && node.Ventilation.State) ? node.Ventilation.State.Val : null),
       this.setCapabilityValue('ventilation_time_state_remain', (node.Ventilation && node.Ventilation.TimeStateRemain) ? node.Ventilation.TimeStateRemain.Val : null),
-      this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd) ? node.Ventilation.TimeStateEnd.Val : null),
+      this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
       this.setCapabilityValue('ventilation_mode', (node.Ventilation && node.Ventilation.Mode) ? node.Ventilation.Mode.Val : null),
       this.setCapabilityValue('ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null),
       this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null),
@@ -76,8 +80,8 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     // trigger ventilation_state changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.ventilationState,
-      this.getCapabilityValue('ventilation_state'),
+      ''+oldCapabilityValues.ventilationState,
+      ''+this.getCapabilityValue('ventilation_state'),
       'ducobox-silent-connect__ventilation_state_changed'
     );
 
@@ -92,16 +96,16 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     // trigger ventilation_time_state_end changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.ventilationTimeStateEnd,
-      this.getCapabilityValue('ventilation_time_state_end'),
+      ''+oldCapabilityValues.ventilationTimeStateEnd,
+      ''+this.getCapabilityValue('ventilation_time_state_end'),
       'ducobox-silent-connect__ventilation_time_state_end_changed'
     );
 
     // trigger ventilation_mode changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.ventilationMode,
-      this.getCapabilityValue('ventilation_mode'),
+      ''+oldCapabilityValues.ventilationMode,
+      ''+this.getCapabilityValue('ventilation_mode'),
       'ducobox-silent-connect__ventilation_mode_changed'
     );
 

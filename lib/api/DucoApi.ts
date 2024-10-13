@@ -5,12 +5,22 @@ import NodeInterface from './types/NodeInterface';
 import PostNodeAction from './types/PostNodeAction';
 import HttpClient from './HttpClient';
 
+let ducoApi: DucoApi|null = null;
+
 export default class DucoApi {
 
     httpClient: HttpClient
 
     constructor(homey: Homey) {
         this.httpClient = new HttpClient(homey);
+    }
+
+    static create(homey: Homey) {
+        if (null === ducoApi) {
+            ducoApi = new DucoApi(homey);
+        }
+
+        return ducoApi;
     }
 
     getNodes() : Promise <NodeInterface[]> {

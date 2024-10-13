@@ -9,7 +9,7 @@ class Co2RoomSensorDevice extends DucoDevice {
 
   async onInit() {
     await this.initCapabilities();
-    this.ducoApi = new DucoApi(this.homey);
+    this.ducoApi = DucoApi.create(this.homey);
   }
 
   async initCapabilities() {

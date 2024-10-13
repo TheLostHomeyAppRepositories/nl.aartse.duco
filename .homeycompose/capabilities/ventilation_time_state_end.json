@@ -1,5 +1,5 @@
 {
-    "type": "number",
+    "type": "string",
     "title": {
         "en": "Time state end",
         "nl": "Eind tijd stand"

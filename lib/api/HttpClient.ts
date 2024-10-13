@@ -1,6 +1,5 @@
 'use strict';
 
-import { rejects } from 'assert';
 import Homey from 'homey/lib/Homey';
 import https from 'https';
 

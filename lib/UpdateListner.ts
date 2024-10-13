@@ -5,8 +5,8 @@ import DucoApi from './api/DucoApi';
 import NodeInterface from './api/types/NodeInterface';
 import NodeHelper from './NodeHelper';
 import DucoDriver from './homey/DucoDriver';
-import { Driver } from 'homey';
-import { Device } from 'homey/lib/FlowCardTriggerDevice';
+
+let updateListener: UpdateListener|null = null;
 
 export default class UpdateListener {
 
@@ -14,31 +14,42 @@ export default class UpdateListener {
     ducoApi: DucoApi
     homey: Homey
     timeoutId: any
+    initTimeoutId: any
 
     constructor(homey: Homey) {
-        this.ducoApi = new DucoApi(homey);
+        this.ducoApi = DucoApi.create(homey);
         this.homey = homey;
         this.timeoutId = null;
-
-        const timeoutCallback = () => {
-            this.startListener();
-        }
 
         const onSettingsChange = (field: any) => {
             if ('hostname' === field) {
                 // restart listener with a timeout to make sure the hostname is changed
-                this.homey.setTimeout(timeoutCallback, 1000);
+                this.startListener(1000);
             }
         }
 
         this.homey.settings.on('set', onSettingsChange);
     }
 
-    startListener() {
+    static create(homey: Homey) {
+        if (null === updateListener) {
+            updateListener = new UpdateListener(homey);
+        }
+
+        return updateListener;
+    }
+
+    startListener(initTimeout: number|null = null) {
         // stop the listener interval
         if (this.timeoutId) {
             this.homey.clearInterval(this.timeoutId);
             this.timeoutId = null;
+        }
+
+        // stop the init timeout interval
+        if (this.initTimeoutId) {
+            this.homey.clearTimeout(this.initTimeoutId);
+            this.initTimeoutId = null;
         }
 
         // use polling to update the data
@@ -48,7 +59,15 @@ export default class UpdateListener {
         this.timeoutId = this.homey.setInterval(timeoutCallback, this.refreshInterval);
 
         // update devices when start listener
-        this.updateDevices();
+        if (initTimeout) {
+            const timeoutCallback = () => {
+                this.updateDevices();
+            }
+
+            this.initTimeoutId = this.homey.setTimeout(timeoutCallback, initTimeout);
+        } else {
+            this.updateDevices();
+        }
     }
 
     updateDevices() {
