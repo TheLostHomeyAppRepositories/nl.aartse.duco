@@ -4,5 +4,8 @@
   },
   "1.1.0": {
     "en": "added flow action card to change the ventilation state"
+  },
+  "1.2.0": {
+    "en": "FIX: for a ducobox without a humidity box sensor; NEW: added air quality co2 box and room sensor devices; NEW: added flow triggers for box and sensors"
   }
 }
