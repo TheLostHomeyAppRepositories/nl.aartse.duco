@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Ventilation mode is changed",
+      "nl": "Ventilatie modus is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Ventilation mode is changed",
+      "nl": "Ventilatie modus is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_ventilation_mode",
+        "type": "string",
+        "title": {
+          "en": "Old value ventilation mode",
+          "nl": "Oude waarde ventilatie modus"
+        }
+      },
+      {
+        "name": "new_ventilation_mode",
+        "type": "string",
+        "title": {
+          "en": "New value ventilation mode",
+          "nl": "Nieuwe waarde ventilatie modus"
+        }
+      }
+    ]
+  }

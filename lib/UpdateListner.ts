@@ -2,7 +2,7 @@
 
 import Homey from 'homey/lib/Homey';
 import DucoApi from './api/DucoApi';
-import NodeInterface from './types/NodeInterface';
+import NodeInterface from './api/types/NodeInterface';
 import NodeHelper from './NodeHelper';
 import DucoDriver from './homey/DucoDriver';
 import { Driver } from 'homey';

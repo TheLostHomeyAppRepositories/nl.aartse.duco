@@ -3,7 +3,7 @@
 import Homey from 'homey';
 import UpdateListener from './lib/UpdateListner';
 import DucoApi from './lib/api/DucoApi';
-import NodeActionEnum from './lib/types/NodeActionEnum';
+import NodeActionEnum from './lib/api/types/NodeActionEnum';
 
 export default class DucoApp extends Homey.App {
   ducoApi!: DucoApi

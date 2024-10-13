@@ -1,4 +1,4 @@
-import NodeInterface from "../types/NodeInterface";
+import NodeInterface from "../api/types/NodeInterface";
 import Homey from 'homey';
 
 export default class DucoDevice extends Homey.Device {

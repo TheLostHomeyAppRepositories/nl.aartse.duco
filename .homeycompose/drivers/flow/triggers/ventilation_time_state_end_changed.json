@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Time current state end is changed",
+      "nl": "Eind tijd huidige stand is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Time current state end is changed",
+      "nl": "Eind tijd huidige stand is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_ventilation_time_state_end",
+        "type": "number",
+        "title": {
+          "en": "Old value time current state end",
+          "nl": "Oude waarde eind tijd huidige stand"
+        }
+      },
+      {
+        "name": "new_ventilation_time_state_end",
+        "type": "number",
+        "title": {
+          "en": "New value time current state end",
+          "nl": "Nieuwe waarde eind tijd huidige stand"
+        }
+      }
+    ]
+  }

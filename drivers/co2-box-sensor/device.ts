@@ -1,5 +1,5 @@
 import DucoDevice from '../../lib/homey/DucoDevice';
-import NodeInterface from '../../lib/types/NodeInterface';
+import NodeInterface from '../../lib/api/types/NodeInterface';
 import DucoApi from '../../lib/api/DucoApi';
 
 class CO2BoxSensorDevice extends DucoDevice {

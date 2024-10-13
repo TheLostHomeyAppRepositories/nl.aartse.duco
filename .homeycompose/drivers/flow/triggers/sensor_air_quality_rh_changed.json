@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Air quality (RH) is changed",
+      "nl": "Lucht kwaliteit (RH) is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Air quality (RH) is changed",
+      "nl": "Lucht kwaliteit (RH) is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_sensor_air_quality_rh",
+        "type": "number",
+        "title": {
+          "en": "Old value air quality (RH)",
+          "nl": "Oude waarde lucht kwaliteit (RH)"
+        }
+      },
+      {
+        "name": "new_sensor_air_quality_rh",
+        "type": "number",
+        "title": {
+          "en": "New value air quality (RH)",
+          "nl": "Nieuwe waarde lucht kwaliteit (RH)"
+        }
+      }
+    ]
+  }

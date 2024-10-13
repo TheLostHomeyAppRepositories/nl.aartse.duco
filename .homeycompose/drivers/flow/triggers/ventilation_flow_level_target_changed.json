@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Flow level target is changed",
+      "nl": "Doel doorstroomniveau is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Flow level target is changed",
+      "nl": "Doel doorstroomniveau is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_ventilation_flow_level_target",
+        "type": "number",
+        "title": {
+          "en": "Old value flow level target",
+          "nl": "Oude waarde doel doorstroomniveau"
+        }
+      },
+      {
+        "name": "new_ventilation_flow_level_target",
+        "type": "number",
+        "title": {
+          "en": "New value flow level target",
+          "nl": "Nieuwe waarde doel doorstroomniveau"
+        }
+      }
+    ]
+  }

@@ -1,4 +1,4 @@
-import NodeInterface from "../types/NodeInterface";
+import NodeInterface from "../api/types/NodeInterface";
 import Homey, { Device } from 'homey';
 import DucoDevice from "./DucoDevice";
 

@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Duration current state is changed",
+      "nl": "Looptijd huidige stand is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Duration current state is changed",
+      "nl": "Looptijd huidige stand is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_ventilation_time_state_remain",
+        "type": "number",
+        "title": {
+          "en": "Old value duration current state",
+          "nl": "Oude waarde looptijd huidige stand"
+        }
+      },
+      {
+        "name": "new_ventilation_time_state_remain",
+        "type": "number",
+        "title": {
+          "en": "New value duration current state",
+          "nl": "Nieuwe waarde looptijd huidige stand"
+        }
+      }
+    ]
+  }

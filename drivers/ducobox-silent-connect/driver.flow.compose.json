@@ -1,5 +1,34 @@
 {
-  "triggers": [],
+  "triggers": [
+    {
+      "$extends":"ventilation_state_changed",
+      "id": "ducobox-silent-connect__ventilation_state_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_remain_changed",
+      "id": "ducobox-silent-connect__ventilation_time_state_remain_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_end_changed",
+      "id": "ducobox-silent-connect__ventilation_time_state_end_changed"
+    },
+    {
+      "$extends":"ventilation_mode_changed",
+      "id": "ducobox-silent-connect__ventilation_mode_changed"
+    },
+    {
+      "$extends":"ventilation_flow_level_target_changed",
+      "id": "ducobox-silent-connect__ventilation_flow_level_target_changed"
+    },
+    {
+      "$extends":"sensor_air_quality_rh_changed",
+      "id": "ducobox-silent-connect__sensor_air_quality_rh_changed"
+    },
+    {
+      "$extends":"sensor_air_quality_co2_changed",
+      "id": "ducobox-silent-connect__sensor_air_quality_co2_changed"
+    }
+  ],
   "conditions": [],
   "actions": [
     {

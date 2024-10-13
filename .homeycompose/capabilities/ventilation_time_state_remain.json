@@ -1,8 +1,8 @@
 {
     "type": "number",
     "title": {
-        "en": "Time state duration",
-        "nl": "Stand looptijd"
+        "en": "Duration state",
+        "nl": "Looptijd stand"
     },
     "getable": true,
     "setable": false,

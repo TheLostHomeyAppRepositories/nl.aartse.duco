@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Air quality (CO2) is changed",
+      "nl": "Lucht kwaliteit (CO2) is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Air quality (CO2) is changed",
+      "nl": "Lucht kwaliteit (CO2) is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_sensor_air_quality_co2",
+        "type": "number",
+        "title": {
+          "en": "Old value air quality (CO2)",
+          "nl": "Oude waarde lucht kwaliteit (CO2)"
+        }
+      },
+      {
+        "name": "new_sensor_air_quality_co2",
+        "type": "number",
+        "title": {
+          "en": "New value air quality (CO2)",
+          "nl": "Nieuwe waarde lucht kwaliteit (CO2)"
+        }
+      }
+    ]
+  }

@@ -1,8 +1,8 @@
 'use strict';
 
 import Homey from 'homey/lib/Homey';
-import NodeInterface from '../types/NodeInterface';
-import PostNodeAction from '../types/PostNodeAction';
+import NodeInterface from './types/NodeInterface';
+import PostNodeAction from './types/PostNodeAction';
 import HttpClient from './HttpClient';
 
 export default class DucoApi {

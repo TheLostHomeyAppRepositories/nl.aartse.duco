@@ -1,0 +1,28 @@
+{
+    "title": {
+      "en": "Ventilation state is changed",
+      "nl": "Ventilatie stand is aangepast"
+    },
+    "titleFormatted": {
+      "en": "Ventilation state is changed",
+      "nl": "Ventilatie stand is aangepast"
+    },
+    "tokens": [
+      {
+        "name": "old_ventilation_state",
+        "type": "string",
+        "title": {
+          "en": "Old value ventilation state",
+          "nl": "Oude waarde ventilatie stand"
+        }
+      },
+      {
+        "name": "new_ventilation_state",
+        "type": "string",
+        "title": {
+          "en": "New value ventilation state",
+          "nl": "Nieuwe waarde ventilatie stand"
+        }
+      }
+    ]
+  }

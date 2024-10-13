@@ -222,6 +222,260 @@
     }
   ],
   "flow": {
+    "triggers": [
+      {
+        "id": "ducobox-silent-connect__ventilation_state_changed",
+        "title": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_ventilation_state",
+            "type": "string",
+            "title": {
+              "en": "Old value ventilation state",
+              "nl": "Oude waarde ventilatie stand"
+            }
+          },
+          {
+            "name": "new_ventilation_state",
+            "type": "string",
+            "title": {
+              "en": "New value ventilation state",
+              "nl": "Nieuwe waarde ventilatie stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      },
+      {
+        "id": "ducobox-silent-connect__ventilation_time_state_remain_changed",
+        "title": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_ventilation_time_state_remain",
+            "type": "number",
+            "title": {
+              "en": "Old value duration current state",
+              "nl": "Oude waarde looptijd huidige stand"
+            }
+          },
+          {
+            "name": "new_ventilation_time_state_remain",
+            "type": "number",
+            "title": {
+              "en": "New value duration current state",
+              "nl": "Nieuwe waarde looptijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      },
+      {
+        "id": "ducobox-silent-connect__ventilation_time_state_end_changed",
+        "title": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_ventilation_time_state_end",
+            "type": "number",
+            "title": {
+              "en": "Old value time current state end",
+              "nl": "Oude waarde eind tijd huidige stand"
+            }
+          },
+          {
+            "name": "new_ventilation_time_state_end",
+            "type": "number",
+            "title": {
+              "en": "New value time current state end",
+              "nl": "Nieuwe waarde eind tijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      },
+      {
+        "id": "ducobox-silent-connect__ventilation_mode_changed",
+        "title": {
+          "en": "Ventilation mode is changed",
+          "nl": "Ventilatie modus is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Ventilation mode is changed",
+          "nl": "Ventilatie modus is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_ventilation_mode",
+            "type": "string",
+            "title": {
+              "en": "Old value ventilation mode",
+              "nl": "Oude waarde ventilatie modus"
+            }
+          },
+          {
+            "name": "new_ventilation_mode",
+            "type": "string",
+            "title": {
+              "en": "New value ventilation mode",
+              "nl": "Nieuwe waarde ventilatie modus"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      },
+      {
+        "id": "ducobox-silent-connect__ventilation_flow_level_target_changed",
+        "title": {
+          "en": "Flow level target is changed",
+          "nl": "Doel doorstroomniveau is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Flow level target is changed",
+          "nl": "Doel doorstroomniveau is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_ventilation_flow_level_target",
+            "type": "number",
+            "title": {
+              "en": "Old value flow level target",
+              "nl": "Oude waarde doel doorstroomniveau"
+            }
+          },
+          {
+            "name": "new_ventilation_flow_level_target",
+            "type": "number",
+            "title": {
+              "en": "New value flow level target",
+              "nl": "Nieuwe waarde doel doorstroomniveau"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      },
+      {
+        "id": "ducobox-silent-connect__sensor_air_quality_rh_changed",
+        "title": {
+          "en": "Air quality (RH) is changed",
+          "nl": "Lucht kwaliteit (RH) is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Air quality (RH) is changed",
+          "nl": "Lucht kwaliteit (RH) is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_sensor_air_quality_rh",
+            "type": "number",
+            "title": {
+              "en": "Old value air quality (RH)",
+              "nl": "Oude waarde lucht kwaliteit (RH)"
+            }
+          },
+          {
+            "name": "new_sensor_air_quality_rh",
+            "type": "number",
+            "title": {
+              "en": "New value air quality (RH)",
+              "nl": "Nieuwe waarde lucht kwaliteit (RH)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      },
+      {
+        "id": "ducobox-silent-connect__sensor_air_quality_co2_changed",
+        "title": {
+          "en": "Air quality (CO2) is changed",
+          "nl": "Lucht kwaliteit (CO2) is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Air quality (CO2) is changed",
+          "nl": "Lucht kwaliteit (CO2) is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_sensor_air_quality_co2",
+            "type": "number",
+            "title": {
+              "en": "Old value air quality (CO2)",
+              "nl": "Oude waarde lucht kwaliteit (CO2)"
+            }
+          },
+          {
+            "name": "new_sensor_air_quality_co2",
+            "type": "number",
+            "title": {
+              "en": "New value air quality (CO2)",
+              "nl": "Nieuwe waarde lucht kwaliteit (CO2)"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ducobox-silent-connect"
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "ducobox-silent-connect__change_ventilation_state",
@@ -623,8 +877,8 @@
     "ventilation_time_state_remain": {
       "type": "number",
       "title": {
-        "en": "Time state duration",
-        "nl": "Stand looptijd"
+        "en": "Duration state",
+        "nl": "Looptijd stand"
       },
       "getable": true,
       "setable": false,
