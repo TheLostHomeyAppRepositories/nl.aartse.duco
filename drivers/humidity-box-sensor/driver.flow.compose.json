@@ -1,0 +1,10 @@
+{
+  "triggers": [
+    {
+      "$extends":"sensor_air_quality_rh_changed",
+      "id": "humidity-box-sensor__sensor_air_quality_rh_changed"
+    }
+  ],
+  "conditions": [],
+  "actions": []
+}

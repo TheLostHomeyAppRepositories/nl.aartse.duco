@@ -1,0 +1,10 @@
+{
+  "triggers": [
+    {
+      "$extends":"sensor_air_quality_co2_changed",
+      "id": "co2-box-sensor__sensor_air_quality_co2_changed"
+    }
+  ],
+  "conditions": [],
+  "actions": []
+}
