@@ -9,7 +9,7 @@
     },
     "tokens": [
       {
-        "name": "old_ventilation_time_state_remain",
+        "name": "old_value",
         "type": "number",
         "title": {
           "en": "Old value duration current state",
@@ -17,7 +17,7 @@
         }
       },
       {
-        "name": "new_ventilation_time_state_remain",
+        "name": "new_value",
         "type": "number",
         "title": {
           "en": "New value duration current state",

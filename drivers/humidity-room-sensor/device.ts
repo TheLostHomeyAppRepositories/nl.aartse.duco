@@ -40,7 +40,7 @@ class HumidityRoomSensorDevice extends DucoDevice {
       this,
       oldCapabilityValues.sensorAirQualityCO2,
       this.getCapabilityValue('sensor_air_quality_rh'),
-      'humidity-room-sensor__sensor_air_quality_rh'
+      'humidity-room-sensor__sensor_air_quality_rh_changed'
     );
   }
 }

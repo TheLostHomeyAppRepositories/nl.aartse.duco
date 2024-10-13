@@ -9,7 +9,7 @@
     },
     "tokens": [
       {
-        "name": "old_ventilation_mode",
+        "name": "old_value",
         "type": "string",
         "title": {
           "en": "Old value ventilation mode",
@@ -17,7 +17,7 @@
         }
       },
       {
-        "name": "new_ventilation_mode",
+        "name": "new_value",
         "type": "string",
         "title": {
           "en": "New value ventilation mode",

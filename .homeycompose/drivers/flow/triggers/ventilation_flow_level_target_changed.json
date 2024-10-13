@@ -9,7 +9,7 @@
     },
     "tokens": [
       {
-        "name": "old_ventilation_flow_level_target",
+        "name": "old_value",
         "type": "number",
         "title": {
           "en": "Old value flow level target",
@@ -17,7 +17,7 @@
         }
       },
       {
-        "name": "new_ventilation_flow_level_target",
+        "name": "new_value",
         "type": "number",
         "title": {
           "en": "New value flow level target",
