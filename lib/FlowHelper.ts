@@ -7,6 +7,8 @@ export default class FlowHelper
     static triggerChangedValueFlowCards(device: DucoDevice, oldValue: any, newValue: any, triggerCard: string) : void
     {
         if (newValue !== oldValue) {
+            device.homey.log(`trigger ${triggerCard}; old value: "${oldValue}"; new value: "${newValue}"`);
+
             device.homey.flow.getDeviceTriggerCard(triggerCard)
             .trigger(
                 device,

@@ -36,5 +36,9 @@
         "email": "jeroen@webdesigntilburg.nl"
       }
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/aartse/athom.duco/issues"
+  },
+  "support": "https://github.com/aartse/athom.duco/issues"
 }

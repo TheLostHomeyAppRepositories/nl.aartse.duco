@@ -80,7 +80,10 @@ export default class HttpClient {
                 rejectUnauthorized: false,
                 timeout: 5000,
             };
-    
+
+            this.homey.log(`sending POST request to "https://${options.hostname}${options.path}"`);
+            this.homey.log(`body: "${body}"`);
+
             const req = https.request(options, res => {
                 if (res.statusCode !== 200) {
                     return reject(new Error(`Failed to POST to url: ${options.path} (status code: ${res.statusCode})`));

@@ -88,8 +88,8 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     // trigger ventilation_time_state_remain changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.ventilationTimeStateRemain,
-      this.getCapabilityValue('ventilation_time_state_remain'),
+      oldCapabilityValues.ventilationTimeStateRemain || 0,
+      this.getCapabilityValue('ventilation_time_state_remain') || 0,
       'ducobox-silent-connect__ventilation_time_state_remain_changed'
     );
 
@@ -112,24 +112,24 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     // trigger ventilation_flow_level_target changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.ventilationFlowLevelTarget,
-      this.getCapabilityValue('ventilation_flow_level_target'),
+      oldCapabilityValues.ventilationFlowLevelTarget || 0,
+      this.getCapabilityValue('ventilation_flow_level_target') || 0,
       'ducobox-silent-connect__ventilation_flow_level_target_changed'
     );
 
     // trigger sensor_air_quality_rh changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.sensorAirQualityRH,
-      this.getCapabilityValue('sensor_air_quality_rh'),
+      oldCapabilityValues.sensorAirQualityRH || 0,
+      this.getCapabilityValue('sensor_air_quality_rh') || 0,
       'ducobox-silent-connect__sensor_air_quality_rh_changed'
     );
 
     // trigger sensor_air_quality_co2 changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.sensorAirQualityCO2,
-      this.getCapabilityValue('sensor_air_quality_co2'),
+      oldCapabilityValues.sensorAirQualityCO2 || 0,
+      this.getCapabilityValue('sensor_air_quality_co2') || 0,
       'ducobox-silent-connect__sensor_air_quality_co2_changed'
     );
   }
