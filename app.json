@@ -2,7 +2,7 @@
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.aartse.duco",
   "version": "1.2.1",
-  "compatibility": ">=5.0.0",
+  "compatibility": ">=12.1.0",
   "sdk": 3,
   "platforms": [
     "local"
@@ -770,6 +770,27 @@
       "id": "humidity-room-sensor"
     }
   ],
+  "widgets": {
+    "remote-switch": {
+      "name": {
+        "en": "DUCO Remote Switch",
+        "nl": "DUCO Bedieningsschakelaar"
+      },
+      "height": "100%",
+      "settings": [],
+      "api": {
+        "updateBoxState": {
+          "method": "PUT",
+          "path": "/box-state"
+        },
+        "getBoxState": {
+          "method": "GET",
+          "path": "/box-state"
+        }
+      },
+      "id": "remote-switch"
+    }
+  },
   "capabilities": {
     "sensor_air_quality_co2": {
       "type": "number",

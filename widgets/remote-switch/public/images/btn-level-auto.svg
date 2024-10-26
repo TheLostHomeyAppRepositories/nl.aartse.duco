@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   width="800px"
+   height="800px"
+   viewBox="0 0 52 52"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="btn-level-auto.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12">
+    <rect
+       x="37.288136"
+       y="261.01695"
+       width="734.28047"
+       height="289.84045"
+       id="rect273" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.40827742"
+     inkscape:cx="543.74793"
+     inkscape:cy="238.80821"
+     inkscape:window-width="1371"
+     inkscape:window-height="993"
+     inkscape:window-x="209"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g4" />
+  <g
+     id="g4">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.065,0,0,0.065,1.4884102,-0.3344383)"
+       id="text271"
+       style="font-size:253.333px;text-align:start;white-space:pre;shape-inside:url(#rect273);display:inline;fill:#000000"
+       x="888.30359"
+       y="0"><tspan
+         x="37.289062"
+         y="492.14095"
+         id="tspan471"><tspan
+           style="font-family:Arial;-inkscape-font-specification:Arial"
+           id="tspan469">AUTO</tspan></tspan></text>
+  </g>
+  <path
+     d="m25.9 25.1"
+     id="path6" />
+</svg>

@@ -38,10 +38,17 @@ class DucoboxSilentConnectDevice extends DucoDevice {
     }
 
     this.registerCapabilityListener('ventilation_state', (value) => {
+      this.homey.log(`ventilation_state capability has been changed to ${value}`);
+
       return this.ducoApi.postNodeAction(this.getData().id, {
         Action: NodeActionEnum.SetVentilationState,
         Val: value
       }).then(() => {
+        this.homey.emit('ventilation_state_changed', {
+          old_value: this.getCapabilityValue('ventilation_state'),
+          new_value: value,
+        });
+
         // restart listener with a timeout to make sure the has updated the values
         UpdateListener.create(this.homey).startListener(10000);
       });
@@ -77,6 +84,15 @@ class DucoboxSilentConnectDevice extends DucoDevice {
   }
 
   triggerFlowCards(oldCapabilityValues: DucoBoxCapabilityValues): void {
+
+    // fire event when ventilation state is changed
+    if (oldCapabilityValues.ventilationState !== this.getCapabilityValue('ventilation_state')) {
+      this.homey.api.emit('ventilation_state_changed', {
+        old_value: oldCapabilityValues.ventilationState,
+        new_value: this.getCapabilityValue('ventilation_state'),
+      });
+    }
+
     // trigger ventilation_state changed
     FlowHelper.triggerChangedValueFlowCards(
       this,

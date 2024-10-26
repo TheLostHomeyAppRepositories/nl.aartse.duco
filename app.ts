@@ -1,8 +1,10 @@
 'use strict';
 
-import Homey from 'homey';
+import Homey, { Device } from 'homey';
 import UpdateListener from './lib/UpdateListner';
 import DucoApi from './lib/api/DucoApi';
+import NodeActionEnum from './lib/api/types/NodeActionEnum';
+import NodeHelper from './lib/NodeHelper';
 
 export default class DucoApp extends Homey.App {
   ducoApi!: DucoApi
@@ -14,6 +16,51 @@ export default class DucoApp extends Homey.App {
     updateListner.startListener();
   }
 
+  updateBoxState(state: string) {
+    // get box device
+    const boxDevice = this.getBoxDevice();
+    if (null === boxDevice) {
+      this.homey.error('no box device found');
+
+      return;
+    }
+
+    // change box state
+    this.ducoApi.postNodeAction(boxDevice.getData().id, {
+      Action: NodeActionEnum.SetVentilationState,
+      Val: state
+    }).then(() => {
+      // restart listener with a timeout to make sure the has updated the values
+      UpdateListener.create(this.homey).startListener(10000);
+    });
+  }
+
+  getBoxState(state: string): string {
+    // get box device
+    const boxDevice = this.getBoxDevice();
+    if (null === boxDevice) {
+      this.homey.error('no box device found');
+
+      return '';
+    }
+
+    // return ventilation state
+    return boxDevice.getCapabilityValue('ventilation_state');
+  }
+
+  getBoxDevice(): Device|null {
+    const drivers = this.homey.drivers.getDrivers();
+    for(const id in drivers) {
+      if (NodeHelper.isMappedForDriver('BOX', id)) {
+        const devices = drivers[id].getDevices();
+        for(const id in devices) {
+          return devices[id];
+        }
+      }
+    }
+
+    return null;
+  }
 }
 
 module.exports = DucoApp;

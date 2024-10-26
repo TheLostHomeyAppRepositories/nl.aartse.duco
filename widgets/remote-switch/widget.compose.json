@@ -1,0 +1,18 @@
+{
+  "name": {
+    "en": "DUCO Remote Switch",
+    "nl": "DUCO Bedieningsschakelaar"
+  },
+  "height": "100%",
+  "settings": [],
+  "api": {
+    "updateBoxState": {
+      "method": "PUT",
+      "path": "/box-state"
+    },
+    "getBoxState": {
+      "method": "GET",
+      "path": "/box-state"
+    }
+  }
+}

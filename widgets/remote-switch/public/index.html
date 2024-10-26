@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <style>
+      img {width:100%;}
+
+      .homey-dark-mode {background-color: black;}
+
+      .buttons {width:100%;}
+
+      .buttons td {padding: 30px}
+
+      /** buttons **/
+      .buttons .top-left {width:50%;border-bottom:1px solid black;border-right:1px solid black;}
+      .homey-dark-mode .buttons .top-left {border-color: white;}
+
+      .buttons .top-right {width:50%;border-bottom:1px solid black;border-left:1px solid black;}
+      .homey-dark-mode .buttons .top-right {border-color: white;}
+
+      .buttons .bottom-left {width:50%;border-top:1px solid black;border-right:1px solid black;}
+      .homey-dark-mode .buttons .bottom-left {border-color:white;}
+
+      .buttons .bottom-right {width:50%;border-top:1px solid black;border-left:1px solid black;}
+      .homey-dark-mode .buttons .bottom-right {border-color: white;}
+
+      /** level states **/
+      .buttons .img-level {filter: invert(0%) sepia(100%) saturate(7480%) hue-rotate(74deg) brightness(93%) contrast(96%);}
+      .homey-dark-mode .buttons .img-level {filter: invert(32%) sepia(7%) saturate(63%) hue-rotate(21deg) brightness(98%) contrast(92%);}
+
+      .buttons .img-level.active,
+      .homey-dark-mode .buttons .img-level.active {filter: invert(72%) sepia(97%) saturate(307%) hue-rotate(351deg) brightness(104%) contrast(101%);}
+
+      .buttons .img-level.continue,
+      .homey-dark-mode .buttons .img-level.continue {filter: invert(52%) sepia(100%) saturate(7456%) hue-rotate(301deg) brightness(118%) contrast(126%);}
+
+      .buttons .img-level.absence,
+      .homey-dark-mode .buttons .img-level.absence {filter: invert(52%) sepia(100%) saturate(7456%) hue-rotate(301deg) brightness(118%) contrast(126%);}
+    </style>
+
+    <script>
+      var longPressTimer = null;
+      var homey = null;
+
+      function onHomeyReady(Homey) {
+        homey = Homey;
+
+        homey.on('ventilation_state_changed', function(event) {
+          updateButtonState(event.new_value);
+        });
+
+        homey.api('GET', '/box-state')
+          .then((result) => {
+            updateButtonState(result);
+          });
+
+        homey.ready();
+      }
+
+      function updateButtonState(state) {
+        // clear all states
+        const allImgLevels = document.getElementsByClassName('img-level');
+        for (let i = 0; i < allImgLevels.length; i++) {
+          allImgLevels[i].classList.remove('active');
+          allImgLevels[i].classList.remove('continue');
+        }
+        
+        // set active state
+        switch (state) {
+          case 'AUTO':
+            document.getElementById('img-level-auto').classList.add('active');
+            break;
+
+          case 'CNT1':
+          case 'MAN1':
+            document.getElementById('img-level-1').classList.add('active');
+          break;
+
+          case 'CNT2':
+          case 'MAN2':
+            document.getElementById('img-level-2').classList.add('active');
+            break;
+
+          case 'CNT3':
+          case 'MAN3':
+            document.getElementById('img-level-3').classList.add('active');
+            break;
+        }
+        
+        // set continue state
+        switch (state) {
+          case 'CNT1':
+            document.getElementById('img-level-1').classList.add('continue');
+            break;
+
+          case 'CNT2':
+            document.getElementById('img-level-2').classList.add('continue');
+            break;
+
+          case 'CNT3':
+            document.getElementById('img-level-3').classList.add('continue');
+            break;
+        }
+      }
+
+      function handleButtonDown(buttonId) {
+        // handle long press
+        longPressTimer = setTimeout(function() {
+          longPressTimer = null;
+
+          // update state based on the pressed buton
+          updateState(buttonId, true);
+        }, 5000);
+      }
+
+      function handleButtonUp(buttonId) {
+        // skip when long press is handled
+        if (null === longPressTimer) {
+          return;
+        }
+
+        // clear long press timeout
+        clearTimeout(longPressTimer);
+        longPressTimer = null;
+
+        // update state based on the pressed buton
+        updateState(buttonId, false);
+      }
+
+      function updateState(buttonId, isContinue) {
+        console.log(`update state based on button: ${buttonId}, isContinue: ${isContinue}`);
+
+        // get state based on the pressed button
+        var state = getState(buttonId, isContinue);
+        if (state === null) {
+          console.error('no state mapping found');
+          return;
+        }
+
+        // update box state
+        homey.api('PUT', '/box-state', {
+          "state": state
+        })
+        .then((result) => {
+          updateButtonState(state);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      }
+
+      function getState(buttonId, isContinue) {
+        switch (buttonId) {
+          case 'level-1':
+            return isContinue ? 'CNT1' : 'MAN1';
+          case 'level-2':
+            return isContinue ? 'CNT2' : 'MAN2';
+          case 'level-3':
+            return isContinue ? 'CNT3' : 'MAN3';
+          case 'level-auto':
+            return 'AUTO'
+        }
+
+        return null;
+      }
+    </script>
+  </head>
+
+  <body class="homey-widget homey-dark-mode">
+    <table class="buttons">
+      <tr>
+        <td class="top-left" onmousedown="handleButtonDown('level-2')" onmouseup="handleButtonUp('level-2')"><img class="img-level" id="img-level-2" src="images/btn-level-2.svg" /></td>
+        <td class="top-right" onmousedown="handleButtonDown('level-3')" onmouseup="handleButtonUp('level-3')"><img class="img-level" id="img-level-3" src="images/btn-level-3.svg" /></td>
+      </tr>
+      <tr>
+        <td class="bottom-left" onmousedown="handleButtonDown('level-1')" onmouseup="handleButtonUp('level-1')"><img class="img-level" id="img-level-1" src="images/btn-level-1.svg" /></td>
+        <td class="bottom-right" onmousedown="handleButtonDown('level-auto')" onmouseup="handleButtonUp('level-auto')"><img class="img-level" id="img-level-auto" src="images/btn-level-auto.svg" /></td>
+      </tr>
+    </table>
+  </body>
+</html>
