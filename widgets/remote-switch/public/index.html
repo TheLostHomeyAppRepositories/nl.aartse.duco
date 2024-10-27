@@ -33,7 +33,7 @@
       .homey-dark-mode .buttons .img-level.continue {filter: invert(52%) sepia(100%) saturate(7456%) hue-rotate(301deg) brightness(118%) contrast(126%);}
 
       .buttons .img-level.absence,
-      .homey-dark-mode .buttons .img-level.absence {filter: invert(52%) sepia(100%) saturate(7456%) hue-rotate(301deg) brightness(118%) contrast(126%);}
+      .homey-dark-mode .buttons .img-level.absence {filter: invert(85%) sepia(94%) saturate(7066%) hue-rotate(133deg) brightness(104%) contrast(104%);}
     </style>
   </head>
 
@@ -51,6 +51,7 @@
 
     <script type="text/javascript">
       var longPressTimer = null;
+      var currentState = null;
 
       function onHomeyReady(Homey) {
 
@@ -69,11 +70,15 @@
       function updateButtonState(state) {
         console.log(`update buttons with state: ${state}`);
 
+        // save current state to handle absence state
+        currentState = state;
+
         // clear all states
         const allImgLevels = document.getElementsByClassName('img-level');
         for (let i = 0; i < allImgLevels.length; i++) {
           allImgLevels[i].classList.remove('active');
           allImgLevels[i].classList.remove('continue');
+          allImgLevels[i].classList.remove('absence');
         }
         
         // set active state
@@ -84,6 +89,7 @@
 
           case 'CNT1':
           case 'MAN1':
+          case 'EMPT':
             document.getElementById('img-level-1').classList.add('active');
           break;
 
@@ -98,7 +104,7 @@
             break;
         }
         
-        // set continue state
+        // set continue or state
         switch (state) {
           case 'CNT1':
             document.getElementById('img-level-1').classList.add('continue');
@@ -111,6 +117,10 @@
           case 'CNT3':
             document.getElementById('img-level-3').classList.add('continue');
             break;
+
+          case 'EMPT':
+            document.getElementById('img-level-1').classList.add('absence');
+            break;
         }
       }
 
@@ -119,8 +129,8 @@
         longPressTimer = setTimeout(function() {
           longPressTimer = null;
 
-          // update state based on the pressed buton
-          updateState(buttonId, true);
+          // update state based on the long pressed buton
+          updateState(buttonId, true, currentState === 'CNT1' || currentState === 'EMPT');
         }, 5000);
       }
 
@@ -135,21 +145,21 @@
         longPressTimer = null;
 
         // update state based on the pressed buton
-        updateState(buttonId, false);
+        updateState(buttonId, false, false);
       }
 
-      function updateState(buttonId, isContinue) {
-        console.log(`update state based on button: ${buttonId}, isContinue: ${isContinue}`);
+      function updateState(buttonId, isContinue, isAbsence) {
+        console.log(`update state based on button: ${buttonId}, isContinue: ${isContinue}, isAbsence: ${isAbsence}`);
 
         // get state based on the pressed button
-        var state = getState(buttonId, isContinue);
+        var state = getState(buttonId, isContinue, isAbsence);
+        console.log(`change state to: "${state}"`);
         if (state === null) {
           console.error('no state mapping found');
           return;
         }
 
         // update box state
-        console.log(`change state to: ${state}`);
         Homey.api('PUT', '/box-state', {
           "state": state
         })
@@ -161,7 +171,11 @@
         });
       }
 
-      function getState(buttonId, isContinue) {
+      function getState(buttonId, isContinue, isAbsence) {
+        if (isAbsence) {
+          return 'EMPT';
+        }
+
         switch (buttonId) {
           case 'level-1':
             return isContinue ? 'CNT1' : 'MAN1';
