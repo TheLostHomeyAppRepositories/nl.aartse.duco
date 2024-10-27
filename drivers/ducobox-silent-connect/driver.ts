@@ -17,6 +17,15 @@ class DucoboxSilentConnectDriver extends DucoDriver {
         Action: NodeActionEnum.SetVentilationState,
         Val: args.ventilation_state
       }).then(() => {
+        // trigger event ventilation_state_changed to update the widget data
+        this.homey.api.realtime('ventilation_state_changed', {
+          old_value: args.device.getCapabilityValue('ventilation_state'),
+          new_value: args.ventilation_state,
+        });
+
+        // update capability value
+        args.device.setCapabilityValue('ventilation_state', args.ventilation_state);
+
         // restart listener with a timeout to make sure the has updated the values
         UpdateListener.create(this.homey).startListener(10000);
       });

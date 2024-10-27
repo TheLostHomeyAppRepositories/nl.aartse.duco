@@ -30,7 +30,8 @@ export default class DucoApp extends Homey.App {
       Action: NodeActionEnum.SetVentilationState,
       Val: state
     }).then(() => {
-      // restart listener with a timeout to make sure the has updated the values
+      // update capability value and restart listener with a timeout to make sure the has updated the values
+      boxDevice.setCapabilityValue('ventilation_state', state);
       UpdateListener.create(this.homey).startListener(10000);
     });
   }

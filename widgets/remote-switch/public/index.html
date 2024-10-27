@@ -35,27 +35,40 @@
       .buttons .img-level.absence,
       .homey-dark-mode .buttons .img-level.absence {filter: invert(52%) sepia(100%) saturate(7456%) hue-rotate(301deg) brightness(118%) contrast(126%);}
     </style>
+  </head>
 
-    <script>
+  <body class="homey-widget">
+    <table class="buttons">
+      <tr>
+        <td class="top-left" onmousedown="handleButtonDown('level-2')" onmouseup="handleButtonUp('level-2')"><img class="img-level" id="img-level-2" src="images/btn-level-2.svg" /></td>
+        <td class="top-right" onmousedown="handleButtonDown('level-3')" onmouseup="handleButtonUp('level-3')"><img class="img-level" id="img-level-3" src="images/btn-level-3.svg" /></td>
+      </tr>
+      <tr>
+        <td class="bottom-left" onmousedown="handleButtonDown('level-1')" onmouseup="handleButtonUp('level-1')"><img class="img-level" id="img-level-1" src="images/btn-level-1.svg" /></td>
+        <td class="bottom-right" onmousedown="handleButtonDown('level-auto')" onmouseup="handleButtonUp('level-auto')"><img class="img-level" id="img-level-auto" src="images/btn-level-auto.svg" /></td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
       var longPressTimer = null;
-      var homey = null;
 
       function onHomeyReady(Homey) {
-        homey = Homey;
 
-        homey.on('ventilation_state_changed', function(event) {
+        Homey.on('ventilation_state_changed', (event) => {
           updateButtonState(event.new_value);
         });
 
-        homey.api('GET', '/box-state')
+        Homey.api('GET', '/box-state')
           .then((result) => {
             updateButtonState(result);
           });
 
-        homey.ready();
+        Homey.ready();
       }
 
       function updateButtonState(state) {
+        console.log(`update buttons with state: ${state}`);
+
         // clear all states
         const allImgLevels = document.getElementsByClassName('img-level');
         for (let i = 0; i < allImgLevels.length; i++) {
@@ -136,7 +149,8 @@
         }
 
         // update box state
-        homey.api('PUT', '/box-state', {
+        console.log(`change state to: ${state}`);
+        Homey.api('PUT', '/box-state', {
           "state": state
         })
         .then((result) => {
@@ -162,18 +176,5 @@
         return null;
       }
     </script>
-  </head>
-
-  <body class="homey-widget homey-dark-mode">
-    <table class="buttons">
-      <tr>
-        <td class="top-left" onmousedown="handleButtonDown('level-2')" onmouseup="handleButtonUp('level-2')"><img class="img-level" id="img-level-2" src="images/btn-level-2.svg" /></td>
-        <td class="top-right" onmousedown="handleButtonDown('level-3')" onmouseup="handleButtonUp('level-3')"><img class="img-level" id="img-level-3" src="images/btn-level-3.svg" /></td>
-      </tr>
-      <tr>
-        <td class="bottom-left" onmousedown="handleButtonDown('level-1')" onmouseup="handleButtonUp('level-1')"><img class="img-level" id="img-level-1" src="images/btn-level-1.svg" /></td>
-        <td class="bottom-right" onmousedown="handleButtonDown('level-auto')" onmouseup="handleButtonUp('level-auto')"><img class="img-level" id="img-level-auto" src="images/btn-level-auto.svg" /></td>
-      </tr>
-    </table>
   </body>
 </html>
