@@ -10,5 +10,8 @@
   },
   "1.2.1": {
     "en": "Fixed an issue with the flow action 'Change ventilation state to'"
+  },
+  "1.3.0": {
+    "en": "new widget: remote switch"
   }
 }
