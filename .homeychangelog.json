@@ -13,5 +13,8 @@
   },
   "1.3.0": {
     "en": "new widget: remote switch"
+  },
+  "1.4.0": {
+    "en": "added support for duco box focus, co2 valve and humidity valve + some bugfixes for other senors"
   }
 }
