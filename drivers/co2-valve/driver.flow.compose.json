@@ -1,0 +1,35 @@
+{
+  "triggers": [
+    {
+      "$extends":"ventilation_state_changed",
+      "id": "co2-valve__ventilation_state_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_remain_changed",
+      "id": "co2-valve__ventilation_time_state_remain_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_end_changed",
+      "id": "co2-valve__ventilation_time_state_end_changed"
+    },
+    {
+      "$extends":"ventilation_mode_changed",
+      "id": "co2-valve__ventilation_mode_changed"
+    },
+    {
+      "$extends":"ventilation_flow_level_target_changed",
+      "id": "co2-valve__ventilation_flow_level_target_changed"
+    },
+    {
+      "$extends":"sensor_air_quality_co2_changed",
+      "id": "co2-valve__sensor_air_quality_co2_changed"
+    }
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "$extends":"change_ventilation_state",
+      "id": "co2-valve__change_ventilation_state"
+    }
+  ]
+}

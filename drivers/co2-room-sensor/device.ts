@@ -38,7 +38,7 @@ class Co2RoomSensorDevice extends DucoDevice {
     // trigger sensor_air_quality_co2 changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.sensorAirQualityCO2,
+      oldCapabilityValues.sensorAirQualityCO2 || 0,
       this.getCapabilityValue('sensor_air_quality_co2'),
       'co2-room-sensor__sensor_air_quality_co2_changed'
     );

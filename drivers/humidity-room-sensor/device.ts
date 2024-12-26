@@ -21,7 +21,7 @@ class HumidityRoomSensorDevice extends DucoDevice {
   updateByNode(node: NodeInterface): void {
     // save old capability values fo tigger cards
     const oldCapabilityValues = <DucoBoxCapabilityValues> {
-      sensorAirQualityCO2: this.getCapabilityValue('sensor_air_quality_rh'),
+      sensorAirQualityRH: this.getCapabilityValue('sensor_air_quality_rh'),
     }
 
     Promise.all([
@@ -35,10 +35,10 @@ class HumidityRoomSensorDevice extends DucoDevice {
   }
 
   triggerFlowCards(oldCapabilityValues: DucoBoxCapabilityValues): void {
-    // trigger sensor_air_quality_co2 changed
+    // trigger sensor_air_quality_rh changed
     FlowHelper.triggerChangedValueFlowCards(
       this,
-      oldCapabilityValues.sensorAirQualityCO2,
+      oldCapabilityValues.sensorAirQualityRH || 0,
       this.getCapabilityValue('sensor_air_quality_rh'),
       'humidity-room-sensor__sensor_air_quality_rh_changed'
     );

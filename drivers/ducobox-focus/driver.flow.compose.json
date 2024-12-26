@@ -1,0 +1,31 @@
+{
+  "triggers": [
+    {
+      "$extends":"ventilation_state_changed",
+      "id": "ducobox-focus__ventilation_state_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_remain_changed",
+      "id": "ducobox-focus__ventilation_time_state_remain_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_end_changed",
+      "id": "ducobox-focus__ventilation_time_state_end_changed"
+    },
+    {
+      "$extends":"ventilation_mode_changed",
+      "id": "ducobox-focus__ventilation_mode_changed"
+    },
+    {
+      "$extends":"ventilation_flow_level_target_changed",
+      "id": "ducobox-focus__ventilation_flow_level_target_changed"
+    }
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "$extends":"change_ventilation_state",
+      "id": "ducobox-focus__change_ventilation_state"
+    }
+  ]
+}
