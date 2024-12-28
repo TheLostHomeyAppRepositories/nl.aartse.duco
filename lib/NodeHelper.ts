@@ -10,6 +10,8 @@ export default class NodeHelper {
                 return ['humidity-box-sensor'];
             case 'BSCO2':
                 return ['co2-box-sensor'];
+            case 'UCBAT':
+                return ['user-control'];
             case 'UCRH':
                 return ['humidity-room-sensor'];
             case 'UCCO2':

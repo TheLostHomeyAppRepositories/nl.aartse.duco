@@ -64,6 +64,7 @@ export default class HttpClient {
                 return reject(new Error(this.homey.__('error.hostname_not_set')));
             }
 
+            const homey = this.homey;
             const body = JSON.stringify(postData);
 
             const options = {
@@ -81,23 +82,33 @@ export default class HttpClient {
                 timeout: 5000,
             };
 
-            this.homey.log(`sending POST request to "https://${options.hostname}${options.path}"`);
-            this.homey.log(`body: "${body}"`);
+            homey.log(`sending POST request to "https://${options.hostname}${options.path}"`);
+            homey.log(`body: "${body}"`);
 
             const req = https.request(options, res => {
                 if (res.statusCode !== 200) {
+                    homey.error(`Failed to POST to url: ${options.path} (status code: ${res.statusCode})`);
+
                     return reject(new Error(`Failed to POST to url: ${options.path} (status code: ${res.statusCode})`));
                 }
+
+                homey.log(`http status code: ${res.statusCode}`);
 
                 const data: string[] = [];
 
                 res.on('data', chunk => data.push(chunk));
                 res.on('end', () => {
+                    homey.log(`response: "${data.join('')}"`);
+
                     return resolve(data.join(''));
                 });
             });
 
-            req.on('error', error => reject(error));
+            req.on('error', error => {
+                homey.error(error);
+
+                return reject(error)
+            });
             req.write(body);
             req.end();
         });

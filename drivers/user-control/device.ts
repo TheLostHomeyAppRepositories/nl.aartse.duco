@@ -1,12 +1,12 @@
 import DucoDevice from '../../lib/homey/DucoDevice';
 import NodeInterface from '../../lib/api/types/NodeInterface';
 import DucoApi from '../../lib/api/DucoApi';
-import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
 import DucoBoxCapabilityValues from '../../lib/types/DucoBoxCapabilityValues';
 import FlowHelper from '../../lib/FlowHelper';
+import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
 import UpdateListener from '../../lib/UpdateListner';
 
-class DucoboxFocusDevice extends DucoDevice {
+class UserControlDevice extends DucoDevice {
   ducoApi!: DucoApi
 
   async onInit() {
@@ -23,12 +23,6 @@ class DucoboxFocusDevice extends DucoDevice {
     }
     if (!this.hasCapability('ventilation_time_state_end')) {
       await this.addCapability('ventilation_time_state_end');
-    }
-    if (!this.hasCapability('ventilation_mode')) {
-      await this.addCapability('ventilation_mode');
-    }
-    if (!this.hasCapability('ventilation_flow_level_target')) {
-      await this.addCapability('ventilation_flow_level_target');
     }
 
     this.registerCapabilityListener('ventilation_state', (value) => {
@@ -56,16 +50,12 @@ class DucoboxFocusDevice extends DucoDevice {
       ventilationState: this.getCapabilityValue('ventilation_state'),
       ventilationTimeStateRemain: this.getCapabilityValue('ventilation_time_state_remain'),
       ventilationTimeStateEnd: this.getCapabilityValue('ventilation_time_state_end'),
-      ventilationMode: this.getCapabilityValue('ventilation_mode'),
-      ventilationFlowLevelTarget: this.getCapabilityValue('ventilation_flow_level_target'),
     }
 
     Promise.all([
       this.setCapabilityValue('ventilation_state', (node.Ventilation && node.Ventilation.State) ? node.Ventilation.State.Val : null),
       this.setCapabilityValue('ventilation_time_state_remain', (node.Ventilation && node.Ventilation.TimeStateRemain) ? node.Ventilation.TimeStateRemain.Val : null),
-      this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
-      this.setCapabilityValue('ventilation_mode', (node.Ventilation && node.Ventilation.Mode) ? node.Ventilation.Mode.Val : null),
-      this.setCapabilityValue('ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null)
+      this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {
@@ -75,7 +65,7 @@ class DucoboxFocusDevice extends DucoDevice {
   }
 
   triggerFlowCards(oldCapabilityValues: DucoBoxCapabilityValues): void {
-
+  
     // trigger event ventilation_state_changed to update the widget data
     if (oldCapabilityValues.ventilationState !== this.getCapabilityValue('ventilation_state')) {
       this.homey.api.realtime('ventilation_state_changed', {
@@ -89,7 +79,7 @@ class DucoboxFocusDevice extends DucoDevice {
       this,
       ''+oldCapabilityValues.ventilationState,
       ''+this.getCapabilityValue('ventilation_state'),
-      'ducobox-focus__ventilation_state_changed'
+      'user-control__ventilation_state_changed'
     );
 
     // trigger ventilation_time_state_remain changed
@@ -97,7 +87,7 @@ class DucoboxFocusDevice extends DucoDevice {
       this,
       oldCapabilityValues.ventilationTimeStateRemain || 0,
       this.getCapabilityValue('ventilation_time_state_remain') || 0,
-      'ducobox-focus__ventilation_time_state_remain_changed'
+      'user-control__ventilation_time_state_remain_changed'
     );
 
     // trigger ventilation_time_state_end changed
@@ -105,25 +95,9 @@ class DucoboxFocusDevice extends DucoDevice {
       this,
       ''+oldCapabilityValues.ventilationTimeStateEnd,
       ''+this.getCapabilityValue('ventilation_time_state_end'),
-      'ducobox-focus__ventilation_time_state_end_changed'
-    );
-
-    // trigger ventilation_mode changed
-    FlowHelper.triggerChangedValueFlowCards(
-      this,
-      ''+oldCapabilityValues.ventilationMode,
-      ''+this.getCapabilityValue('ventilation_mode'),
-      'ducobox-focus__ventilation_mode_changed'
-    );
-
-    // trigger ventilation_flow_level_target changed
-    FlowHelper.triggerChangedValueFlowCards(
-      this,
-      oldCapabilityValues.ventilationFlowLevelTarget || 0,
-      this.getCapabilityValue('ventilation_flow_level_target') || 0,
-      'ducobox-focus__ventilation_flow_level_target_changed'
+      'user-control__ventilation_time_state_end_changed'
     );
   }
 }
 
-module.exports = DucoboxFocusDevice;
+module.exports = UserControlDevice;

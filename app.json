@@ -81,6 +81,114 @@
         ]
       },
       {
+        "id": "co2-room-sensor__ventilation_state_changed",
+        "title": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value ventilation state",
+              "nl": "Oude waarde ventilatie stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value ventilation state",
+              "nl": "Nieuwe waarde ventilatie stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=co2-room-sensor"
+          }
+        ]
+      },
+      {
+        "id": "co2-room-sensor__ventilation_time_state_remain_changed",
+        "title": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value duration current state",
+              "nl": "Oude waarde looptijd huidige stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value duration current state",
+              "nl": "Nieuwe waarde looptijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=co2-room-sensor"
+          }
+        ]
+      },
+      {
+        "id": "co2-room-sensor__ventilation_time_state_end_changed",
+        "title": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value time current state end",
+              "nl": "Oude waarde eind tijd huidige stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value time current state end",
+              "nl": "Nieuwe waarde eind tijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=co2-room-sensor"
+          }
+        ]
+      },
+      {
         "id": "co2-room-sensor__sensor_air_quality_co2_changed",
         "title": {
           "en": "Air quality (CO2) is changed",
@@ -801,6 +909,114 @@
         ]
       },
       {
+        "id": "humidity-room-sensor__ventilation_state_changed",
+        "title": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value ventilation state",
+              "nl": "Oude waarde ventilatie stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value ventilation state",
+              "nl": "Nieuwe waarde ventilatie stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=humidity-room-sensor"
+          }
+        ]
+      },
+      {
+        "id": "humidity-room-sensor__ventilation_time_state_remain_changed",
+        "title": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value duration current state",
+              "nl": "Oude waarde looptijd huidige stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value duration current state",
+              "nl": "Nieuwe waarde looptijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=humidity-room-sensor"
+          }
+        ]
+      },
+      {
+        "id": "humidity-room-sensor__ventilation_time_state_end_changed",
+        "title": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value time current state end",
+              "nl": "Oude waarde eind tijd huidige stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value time current state end",
+              "nl": "Nieuwe waarde eind tijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=humidity-room-sensor"
+          }
+        ]
+      },
+      {
         "id": "humidity-room-sensor__sensor_air_quality_rh_changed",
         "title": {
           "en": "Air quality (RH) is changed",
@@ -1051,9 +1267,260 @@
             "filter": "driver_id=humidity-valve"
           }
         ]
+      },
+      {
+        "id": "user-control__ventilation_state_changed",
+        "title": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Ventilation state is changed",
+          "nl": "Ventilatie stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value ventilation state",
+              "nl": "Oude waarde ventilatie stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value ventilation state",
+              "nl": "Nieuwe waarde ventilatie stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=user-control"
+          }
+        ]
+      },
+      {
+        "id": "user-control__ventilation_time_state_remain_changed",
+        "title": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Duration current state is changed",
+          "nl": "Looptijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value duration current state",
+              "nl": "Oude waarde looptijd huidige stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value duration current state",
+              "nl": "Nieuwe waarde looptijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=user-control"
+          }
+        ]
+      },
+      {
+        "id": "user-control__ventilation_time_state_end_changed",
+        "title": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "titleFormatted": {
+          "en": "Time current state end is changed",
+          "nl": "Eind tijd huidige stand is aangepast"
+        },
+        "tokens": [
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value time current state end",
+              "nl": "Oude waarde eind tijd huidige stand"
+            }
+          },
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value time current state end",
+              "nl": "Nieuwe waarde eind tijd huidige stand"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=user-control"
+          }
+        ]
       }
     ],
     "actions": [
+      {
+        "id": "co2-room-sensor__change_ventilation_state",
+        "title": {
+          "en": "Change ventilation state to",
+          "nl": "Verander ventilatie stand naar"
+        },
+        "titleFormatted": {
+          "en": "Change ventilation state to [[ventilation_state]]",
+          "nl": "Verander ventilatie stand naar [[ventilation_state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=co2-room-sensor"
+          },
+          {
+            "type": "dropdown",
+            "name": "ventilation_state",
+            "values": [
+              {
+                "id": "AUTO",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch"
+                }
+              },
+              {
+                "id": "AUT1",
+                "label": {
+                  "en": "Auto 1",
+                  "nl": "Automatisch 1"
+                }
+              },
+              {
+                "id": "AUT2",
+                "label": {
+                  "en": "Auto 2",
+                  "nl": "Automatisch 2"
+                }
+              },
+              {
+                "id": "AUT3",
+                "label": {
+                  "en": "Auto 3",
+                  "nl": "Automatisch 3"
+                }
+              },
+              {
+                "id": "MAN1",
+                "label": {
+                  "en": "Manual 1",
+                  "nl": "Tijdelijk 1"
+                }
+              },
+              {
+                "id": "MAN2",
+                "label": {
+                  "en": "Manual 2",
+                  "nl": "Tijdelijk 2"
+                }
+              },
+              {
+                "id": "MAN3",
+                "label": {
+                  "en": "Manual 3",
+                  "nl": "Tijdelijk 3"
+                }
+              },
+              {
+                "id": "CNT1",
+                "label": {
+                  "en": "Continue 1",
+                  "nl": "Permanent 1"
+                }
+              },
+              {
+                "id": "CNT2",
+                "label": {
+                  "en": "Continue 2",
+                  "nl": "Permanent 2"
+                }
+              },
+              {
+                "id": "CNT3",
+                "label": {
+                  "en": "Continue 3",
+                  "nl": "Permanent 3"
+                }
+              },
+              {
+                "id": "EMPT",
+                "label": {
+                  "en": "Absence",
+                  "nl": "Afwezigheid"
+                }
+              },
+              {
+                "id": "MAN1x2",
+                "label": {
+                  "en": "Manual 1x2",
+                  "nl": "Tijdelijk 1x2"
+                }
+              },
+              {
+                "id": "MAN2x2",
+                "label": {
+                  "en": "Manual 2x2",
+                  "nl": "Tijdelijk 2x2"
+                }
+              },
+              {
+                "id": "MAN3x2",
+                "label": {
+                  "en": "Manual 3x2",
+                  "nl": "Tijdelijk 3x2"
+                }
+              },
+              {
+                "id": "MAN1x3",
+                "label": {
+                  "en": "Manual 1x3",
+                  "nl": "Tijdelijk 1x3"
+                }
+              },
+              {
+                "id": "MAN2x3",
+                "label": {
+                  "en": "Manual 2x3",
+                  "nl": "Tijdelijk 2x3"
+                }
+              },
+              {
+                "id": "MAN3x3",
+                "label": {
+                  "en": "Manual 3x3",
+                  "nl": "Tijdelijk 3x3"
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "id": "co2-valve__change_ventilation_state",
         "title": {
@@ -1484,6 +1951,149 @@
         ]
       },
       {
+        "id": "humidity-room-sensor__change_ventilation_state",
+        "title": {
+          "en": "Change ventilation state to",
+          "nl": "Verander ventilatie stand naar"
+        },
+        "titleFormatted": {
+          "en": "Change ventilation state to [[ventilation_state]]",
+          "nl": "Verander ventilatie stand naar [[ventilation_state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=humidity-room-sensor"
+          },
+          {
+            "type": "dropdown",
+            "name": "ventilation_state",
+            "values": [
+              {
+                "id": "AUTO",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch"
+                }
+              },
+              {
+                "id": "AUT1",
+                "label": {
+                  "en": "Auto 1",
+                  "nl": "Automatisch 1"
+                }
+              },
+              {
+                "id": "AUT2",
+                "label": {
+                  "en": "Auto 2",
+                  "nl": "Automatisch 2"
+                }
+              },
+              {
+                "id": "AUT3",
+                "label": {
+                  "en": "Auto 3",
+                  "nl": "Automatisch 3"
+                }
+              },
+              {
+                "id": "MAN1",
+                "label": {
+                  "en": "Manual 1",
+                  "nl": "Tijdelijk 1"
+                }
+              },
+              {
+                "id": "MAN2",
+                "label": {
+                  "en": "Manual 2",
+                  "nl": "Tijdelijk 2"
+                }
+              },
+              {
+                "id": "MAN3",
+                "label": {
+                  "en": "Manual 3",
+                  "nl": "Tijdelijk 3"
+                }
+              },
+              {
+                "id": "CNT1",
+                "label": {
+                  "en": "Continue 1",
+                  "nl": "Permanent 1"
+                }
+              },
+              {
+                "id": "CNT2",
+                "label": {
+                  "en": "Continue 2",
+                  "nl": "Permanent 2"
+                }
+              },
+              {
+                "id": "CNT3",
+                "label": {
+                  "en": "Continue 3",
+                  "nl": "Permanent 3"
+                }
+              },
+              {
+                "id": "EMPT",
+                "label": {
+                  "en": "Absence",
+                  "nl": "Afwezigheid"
+                }
+              },
+              {
+                "id": "MAN1x2",
+                "label": {
+                  "en": "Manual 1x2",
+                  "nl": "Tijdelijk 1x2"
+                }
+              },
+              {
+                "id": "MAN2x2",
+                "label": {
+                  "en": "Manual 2x2",
+                  "nl": "Tijdelijk 2x2"
+                }
+              },
+              {
+                "id": "MAN3x2",
+                "label": {
+                  "en": "Manual 3x2",
+                  "nl": "Tijdelijk 3x2"
+                }
+              },
+              {
+                "id": "MAN1x3",
+                "label": {
+                  "en": "Manual 1x3",
+                  "nl": "Tijdelijk 1x3"
+                }
+              },
+              {
+                "id": "MAN2x3",
+                "label": {
+                  "en": "Manual 2x3",
+                  "nl": "Tijdelijk 2x3"
+                }
+              },
+              {
+                "id": "MAN3x3",
+                "label": {
+                  "en": "Manual 3x3",
+                  "nl": "Tijdelijk 3x3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "humidity-valve__change_ventilation_state",
         "title": {
           "en": "Change ventilation state to",
@@ -1498,6 +2108,149 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=humidity-valve"
+          },
+          {
+            "type": "dropdown",
+            "name": "ventilation_state",
+            "values": [
+              {
+                "id": "AUTO",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Automatisch"
+                }
+              },
+              {
+                "id": "AUT1",
+                "label": {
+                  "en": "Auto 1",
+                  "nl": "Automatisch 1"
+                }
+              },
+              {
+                "id": "AUT2",
+                "label": {
+                  "en": "Auto 2",
+                  "nl": "Automatisch 2"
+                }
+              },
+              {
+                "id": "AUT3",
+                "label": {
+                  "en": "Auto 3",
+                  "nl": "Automatisch 3"
+                }
+              },
+              {
+                "id": "MAN1",
+                "label": {
+                  "en": "Manual 1",
+                  "nl": "Tijdelijk 1"
+                }
+              },
+              {
+                "id": "MAN2",
+                "label": {
+                  "en": "Manual 2",
+                  "nl": "Tijdelijk 2"
+                }
+              },
+              {
+                "id": "MAN3",
+                "label": {
+                  "en": "Manual 3",
+                  "nl": "Tijdelijk 3"
+                }
+              },
+              {
+                "id": "CNT1",
+                "label": {
+                  "en": "Continue 1",
+                  "nl": "Permanent 1"
+                }
+              },
+              {
+                "id": "CNT2",
+                "label": {
+                  "en": "Continue 2",
+                  "nl": "Permanent 2"
+                }
+              },
+              {
+                "id": "CNT3",
+                "label": {
+                  "en": "Continue 3",
+                  "nl": "Permanent 3"
+                }
+              },
+              {
+                "id": "EMPT",
+                "label": {
+                  "en": "Absence",
+                  "nl": "Afwezigheid"
+                }
+              },
+              {
+                "id": "MAN1x2",
+                "label": {
+                  "en": "Manual 1x2",
+                  "nl": "Tijdelijk 1x2"
+                }
+              },
+              {
+                "id": "MAN2x2",
+                "label": {
+                  "en": "Manual 2x2",
+                  "nl": "Tijdelijk 2x2"
+                }
+              },
+              {
+                "id": "MAN3x2",
+                "label": {
+                  "en": "Manual 3x2",
+                  "nl": "Tijdelijk 3x2"
+                }
+              },
+              {
+                "id": "MAN1x3",
+                "label": {
+                  "en": "Manual 1x3",
+                  "nl": "Tijdelijk 1x3"
+                }
+              },
+              {
+                "id": "MAN2x3",
+                "label": {
+                  "en": "Manual 2x3",
+                  "nl": "Tijdelijk 2x3"
+                }
+              },
+              {
+                "id": "MAN3x3",
+                "label": {
+                  "en": "Manual 3x3",
+                  "nl": "Tijdelijk 3x3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "user-control__change_ventilation_state",
+        "title": {
+          "en": "Change ventilation state to",
+          "nl": "Verander ventilatie stand naar"
+        },
+        "titleFormatted": {
+          "en": "Change ventilation state to [[ventilation_state]]",
+          "nl": "Verander ventilatie stand naar [[ventilation_state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=user-control"
           },
           {
             "type": "dropdown",
@@ -1671,6 +2424,9 @@
       },
       "class": "sensor",
       "capabilities": [
+        "ventilation_state",
+        "ventilation_time_state_remain",
+        "ventilation_time_state_end",
         "sensor_air_quality_co2"
       ],
       "platforms": [
@@ -1861,6 +2617,9 @@
       },
       "class": "sensor",
       "capabilities": [
+        "ventilation_state",
+        "ventilation_time_state_remain",
+        "ventilation_time_state_end",
         "sensor_air_quality_rh"
       ],
       "platforms": [
@@ -1928,6 +2687,43 @@
         }
       ],
       "id": "humidity-valve"
+    },
+    {
+      "name": {
+        "en": "User Control",
+        "nl": "Afstandsbediening"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "ventilation_state",
+        "ventilation_time_state_remain",
+        "ventilation_time_state_end"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/user-control/assets/images/small.png",
+        "large": "/drivers/user-control/assets/images/large.png",
+        "xlarge": "/drivers/user-control/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_my_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_my_devices"
+          }
+        },
+        {
+          "id": "add_my_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "user-control"
     }
   ],
   "widgets": {

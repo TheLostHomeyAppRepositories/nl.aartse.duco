@@ -1,14 +1,13 @@
 {
   "name": {
-    "en": "Humidity Room sensor",
-    "nl": "Vocht Ruimtesensor"
+    "en": "User Control",
+    "nl": "Afstandsbediening"
   },
   "class": "sensor",
   "capabilities": [
     "ventilation_state",
     "ventilation_time_state_remain",
-    "ventilation_time_state_end",
-    "sensor_air_quality_rh"
+    "ventilation_time_state_end"
   ],
   "platforms": [
     "local"

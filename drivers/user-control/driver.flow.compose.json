@@ -1,0 +1,23 @@
+{
+  "triggers": [
+    {
+      "$extends":"ventilation_state_changed",
+      "id": "user-control__ventilation_state_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_remain_changed",
+      "id": "user-control__ventilation_time_state_remain_changed"
+    },
+    {
+      "$extends":"ventilation_time_state_end_changed",
+      "id": "user-control__ventilation_time_state_end_changed"
+    }
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "$extends":"change_ventilation_state",
+      "id": "user-control__change_ventilation_state"
+    }
+  ]
+}

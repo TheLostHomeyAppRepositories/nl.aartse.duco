@@ -4,7 +4,7 @@ import DucoDriver from '../../lib/homey/DucoDriver';
 import UpdateListener from '../../lib/UpdateListner';
 import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
 
-class DucoboxSilentConnectDriver extends DucoDriver {
+class DucoboxFocusDriver extends DucoDriver {
   ducoApi!: DucoApi
 
   async onInit() {
@@ -48,4 +48,4 @@ class DucoboxSilentConnectDriver extends DucoDriver {
   }
 }
 
-module.exports = DucoboxSilentConnectDriver;
+module.exports = DucoboxFocusDriver;
