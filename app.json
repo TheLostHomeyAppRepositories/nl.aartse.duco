@@ -3016,7 +3016,7 @@
         "en": "User Control",
         "nl": "Afstandsbediening"
       },
-      "class": "sensor",
+      "class": "remote",
       "capabilities": [
         "ventilation_state",
         "ventilation_time_state_remain",
@@ -3053,7 +3053,7 @@
         "en": "Valve",
         "nl": "Klep"
       },
-      "class": "sensor",
+      "class": "other",
       "capabilities": [
         "ventilation_state",
         "ventilation_time_state_remain",
@@ -3119,7 +3119,11 @@
       "insights": true,
       "getable": true,
       "setable": false,
-      "icon": "/assets/capabilities/sensor_air_quality_co2.svg"
+      "icon": "/assets/capabilities/sensor_air_quality_co2.svg",
+      "units": {
+        "en": "%",
+        "nl": "%"
+      }
     },
     "sensor_air_quality_rh": {
       "type": "number",
@@ -3130,7 +3134,11 @@
       "insights": true,
       "getable": true,
       "setable": false,
-      "icon": "/assets/capabilities/sensor_air_quality_rh.svg"
+      "icon": "/assets/capabilities/sensor_air_quality_rh.svg",
+      "units": {
+        "en": "%",
+        "nl": "%"
+      }
     },
     "ventilation_flow_level_target": {
       "type": "number",
@@ -3141,7 +3149,11 @@
       "insights": true,
       "getable": true,
       "setable": false,
-      "icon": "/assets/capabilities/ventilation_flow_level_target.svg"
+      "icon": "/assets/capabilities/ventilation_flow_level_target.svg",
+      "units": {
+        "en": "%",
+        "nl": "%"
+      }
     },
     "ventilation_mode": {
       "type": "enum",
@@ -3369,7 +3381,11 @@
       },
       "getable": true,
       "setable": false,
-      "icon": "/assets/capabilities/time_state_remain.svg"
+      "icon": "/assets/capabilities/time_state_remain.svg",
+      "units": {
+        "en": "seconds",
+        "nl": "seconden"
+      }
     }
   }
 }

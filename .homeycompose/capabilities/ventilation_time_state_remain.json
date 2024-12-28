@@ -6,5 +6,9 @@
     },
     "getable": true,
     "setable": false,
-    "icon": "/assets/capabilities/time_state_remain.svg"
+    "icon": "/assets/capabilities/time_state_remain.svg",
+    "units": {
+        "en": "seconds",
+        "nl": "seconden"
+    }
 }

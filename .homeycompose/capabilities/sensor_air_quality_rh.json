@@ -7,5 +7,9 @@
     "insights": true,
     "getable": true,
     "setable": false,
-    "icon": "/assets/capabilities/sensor_air_quality_rh.svg"
+    "icon": "/assets/capabilities/sensor_air_quality_rh.svg",
+    "units": {
+        "en": "%",
+        "nl": "%"
+    }
 }
