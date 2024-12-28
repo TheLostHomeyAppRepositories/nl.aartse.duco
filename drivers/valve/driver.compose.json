@@ -1,0 +1,36 @@
+{
+  "name": {
+    "en": "Valve",
+    "nl": "Klep"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "ventilation_state",
+    "ventilation_time_state_remain",
+    "ventilation_time_state_end",
+    "ventilation_mode",
+    "ventilation_flow_level_target"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "list_my_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_my_devices" }
+    },
+    {
+      "id": "add_my_devices",
+      "template": "add_devices"
+    }
+  ]
+}
