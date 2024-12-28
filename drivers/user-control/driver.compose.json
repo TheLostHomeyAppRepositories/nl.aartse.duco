@@ -3,7 +3,7 @@
     "en": "User Control",
     "nl": "Afstandsbediening"
   },
-  "class": "sensor",
+  "class": "remote",
   "capabilities": [
     "ventilation_state",
     "ventilation_time_state_remain",

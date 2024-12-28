@@ -3,7 +3,7 @@
     "en": "Valve",
     "nl": "Klep"
   },
-  "class": "sensor",
+  "class": "other",
   "capabilities": [
     "ventilation_state",
     "ventilation_time_state_remain",
