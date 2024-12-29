@@ -16,5 +16,8 @@
   },
   "1.4.0": {
     "en": "added support for duco box focus, co2 valve and humidity valve + some bugfixes for other senors"
+  },
+  "1.5.0": {
+    "en": "added new devices: user-control and valve. added ventilation capabilities for room sensors. and some minor improvements."
   }
 }
