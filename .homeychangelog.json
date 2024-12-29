@@ -19,5 +19,8 @@
   },
   "1.5.0": {
     "en": "added new devices: user-control and valve. added ventilation capabilities for room sensors. and some minor improvements."
+  },
+  "1.5.1": {
+    "en": "added new devices: user-control and valve. added ventilation capabilities for room sensors. and some minor improvements."
   }
 }
