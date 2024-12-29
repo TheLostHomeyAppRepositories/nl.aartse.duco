@@ -155,11 +155,11 @@
       {
         "id": "co2-room-sensor__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -167,7 +167,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -175,7 +175,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -299,11 +299,11 @@
       {
         "id": "co2-valve__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -311,7 +311,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -319,7 +319,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -515,11 +515,11 @@
       {
         "id": "ducobox-focus__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -527,7 +527,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -535,7 +535,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -695,11 +695,11 @@
       {
         "id": "ducobox-silent-connect__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -707,7 +707,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -715,7 +715,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -983,11 +983,11 @@
       {
         "id": "humidity-room-sensor__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -995,7 +995,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -1003,7 +1003,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -1127,11 +1127,11 @@
       {
         "id": "humidity-valve__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -1139,7 +1139,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -1147,7 +1147,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -1343,11 +1343,11 @@
       {
         "id": "user-control__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -1355,7 +1355,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -1363,7 +1363,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }
@@ -1451,11 +1451,11 @@
       {
         "id": "valve__ventilation_time_state_end_changed",
         "title": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "titleFormatted": {
-          "en": "Time current state end is changed",
+          "en": "End time of current state is changed",
           "nl": "Eind tijd huidige stand is aangepast"
         },
         "tokens": [
@@ -1463,7 +1463,7 @@
             "name": "old_value",
             "type": "string",
             "title": {
-              "en": "Old value time current state end",
+              "en": "Old value end time of current state",
               "nl": "Oude waarde eind tijd huidige stand"
             }
           },
@@ -1471,7 +1471,7 @@
             "name": "new_value",
             "type": "string",
             "title": {
-              "en": "New value time current state end",
+              "en": "New value end time of current state",
               "nl": "Nieuwe waarde eind tijd huidige stand"
             }
           }

@@ -1,10 +1,10 @@
 {
     "title": {
-      "en": "Time current state end is changed",
+      "en": "End time of current state is changed",
       "nl": "Eind tijd huidige stand is aangepast"
     },
     "titleFormatted": {
-      "en": "Time current state end is changed",
+      "en": "End time of current state is changed",
       "nl": "Eind tijd huidige stand is aangepast"
     },
     "tokens": [
@@ -12,7 +12,7 @@
         "name": "old_value",
         "type": "string",
         "title": {
-          "en": "Old value time current state end",
+          "en": "Old value end time of current state",
           "nl": "Oude waarde eind tijd huidige stand"
         }
       },
@@ -20,7 +20,7 @@
         "name": "new_value",
         "type": "string",
         "title": {
-          "en": "New value time current state end",
+          "en": "New value end time of current state",
           "nl": "Nieuwe waarde eind tijd huidige stand"
         }
       }
