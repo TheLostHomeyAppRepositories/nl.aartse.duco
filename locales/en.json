@@ -2,6 +2,7 @@
     "settings": {
         "title": "App settings",
         "hostname": "IP / Hostname DucoBox",
+        "hostname_hint": "This is the local IP address of the Connectivity Board.",
         "save": "Save"
     },
     "error": {
