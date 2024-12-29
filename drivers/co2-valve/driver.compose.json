@@ -1,7 +1,7 @@
 {
   "name": {
     "en": "CO2 Valve",
-    "nl": "Klep met CO2 Sensor"
+    "nl": "Regelklep met CO2 Sensor"
   },
   "class": "sensor",
   "capabilities": [

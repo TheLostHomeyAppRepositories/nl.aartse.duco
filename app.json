@@ -2781,7 +2781,7 @@
     {
       "name": {
         "en": "CO2 Valve",
-        "nl": "Klep met CO2 Sensor"
+        "nl": "Regelklep met CO2 Sensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -2974,7 +2974,7 @@
     {
       "name": {
         "en": "Humidity Valve",
-        "nl": "Klep met vochtsensor"
+        "nl": "Regelklep met vochtsensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -3051,7 +3051,7 @@
     {
       "name": {
         "en": "Valve",
-        "nl": "Klep"
+        "nl": "Regelklep"
       },
       "class": "other",
       "capabilities": [

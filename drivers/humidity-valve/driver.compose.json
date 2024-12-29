@@ -1,7 +1,7 @@
 {
   "name": {
     "en": "Humidity Valve",
-    "nl": "Klep met vochtsensor"
+    "nl": "Regelklep met vochtsensor"
   },
   "class": "sensor",
   "capabilities": [
