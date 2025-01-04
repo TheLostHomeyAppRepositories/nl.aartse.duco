@@ -30,6 +30,16 @@ class CO2ValveDriver extends DucoDriver {
         UpdateListener.create(this.homey).startListener(10000);
       });
     });
+    
+    // init condition cards
+    const ventilationStateCondition = this.homey.flow.getConditionCard('co2-valve__ventilation_state_is');
+    ventilationStateCondition.registerRunListener((args, state) => {
+      return args.device.getCapabilityValue('ventilation_state') === args.state;
+    });
+    const ventilationModeCondition = this.homey.flow.getConditionCard('co2-valve__ventilation_mode_is');
+    ventilationModeCondition.registerRunListener((args, state) => {
+      return args.device.getCapabilityValue('ventilation_mode') === args.mode;
+    });
   }
 
   async onPairListDevices() {

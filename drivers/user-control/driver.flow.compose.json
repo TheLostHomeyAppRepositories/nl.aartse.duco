@@ -13,7 +13,12 @@
       "id": "user-control__ventilation_time_state_end_changed"
     }
   ],
-  "conditions": [],
+  "conditions": [
+    {
+      "$extends":"ventilation_state_is",
+      "id": "user-control__ventilation_state_is"
+    }
+  ],
   "actions": [
     {
       "$extends":"change_ventilation_state",

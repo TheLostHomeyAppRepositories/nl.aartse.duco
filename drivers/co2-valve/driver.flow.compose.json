@@ -25,7 +25,16 @@
       "id": "co2-valve__sensor_air_quality_co2_changed"
     }
   ],
-  "conditions": [],
+  "conditions": [
+    {
+      "$extends":"ventilation_state_is",
+      "id": "co2-valve__ventilation_state_is"
+    },
+    {
+      "$extends":"ventilation_mode_is",
+      "id": "co2-valve__ventilation_mode_is"
+    }
+  ],
   "actions": [
     {
       "$extends":"change_ventilation_state",

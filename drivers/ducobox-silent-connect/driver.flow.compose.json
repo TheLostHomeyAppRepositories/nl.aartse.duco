@@ -29,7 +29,16 @@
       "id": "ducobox-silent-connect__sensor_air_quality_co2_changed"
     }
   ],
-  "conditions": [],
+  "conditions": [
+    {
+      "$extends":"ventilation_state_is",
+      "id": "ducobox-silent-connect__ventilation_state_is"
+    },
+    {
+      "$extends":"ventilation_mode_is",
+      "id": "ducobox-silent-connect__ventilation_mode_is"
+    }
+  ],
   "actions": [
     {
       "$extends":"change_ventilation_state",

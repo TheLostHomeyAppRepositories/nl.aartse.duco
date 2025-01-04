@@ -17,7 +17,12 @@
       "id": "humidity-room-sensor__sensor_air_quality_rh_changed"
     }
   ],
-  "conditions": [],
+  "conditions": [
+    {
+      "$extends":"ventilation_state_is",
+      "id": "humidity-room-sensor__ventilation_state_is"
+    }
+  ],
   "actions": [
     {
       "$extends":"change_ventilation_state",
