@@ -39,7 +39,7 @@ class HumidityBoxSensorDevice extends DucoDevice {
     FlowHelper.triggerChangedValueFlowCards(
       this,
       oldCapabilityValues.sensorAirQualityRH || 0,
-      this.getCapabilityValue('sensor_air_quality_rh'),
+      this.getCapabilityValue('sensor_air_quality_rh') || 0,
       'humidity-box-sensor__sensor_air_quality_rh_changed'
     );
   }

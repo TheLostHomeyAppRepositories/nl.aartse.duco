@@ -15,11 +15,13 @@ export default class UpdateListener {
     homey: Homey
     timeoutId: any
     initTimeoutId: any
+    updatingDevices: boolean
 
     constructor(homey: Homey) {
         this.ducoApi = DucoApi.create(homey);
         this.homey = homey;
         this.timeoutId = null;
+        this.updatingDevices = false;
 
         const onSettingsChange = (field: any) => {
             if ('hostname' === field) {
@@ -71,11 +73,21 @@ export default class UpdateListener {
     }
 
     updateDevices() {
+        if (this.updatingDevices) {
+            this.homey.error('update devices process already running');
+            return;
+        }
+        this.updatingDevices = true;
+
         this.ducoApi.getNodes().then(nodes => {
+            this.updatingDevices = false;
+
             nodes.forEach((node: NodeInterface) => {
                 this.updateDriverByNode(node);
             });
         }).catch((err) => {
+            this.updatingDevices = false;
+
             const drivers = this.homey.drivers.getDrivers();
             for(const id in drivers) {
                 const driver = <DucoDriver>drivers[id];

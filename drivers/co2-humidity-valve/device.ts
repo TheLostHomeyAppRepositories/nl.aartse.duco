@@ -137,7 +137,7 @@ class Co2HumidityValveDevice extends DucoDevice {
     FlowHelper.triggerChangedValueFlowCards(
       this,
       oldCapabilityValues.sensorAirQualityRH || 0,
-      this.getCapabilityValue('sensor_air_quality_rh'),
+      this.getCapabilityValue('sensor_air_quality_rh') || 0,
       'co2-humidity-valve__sensor_air_quality_rh_changed'
     );
         
@@ -145,7 +145,7 @@ class Co2HumidityValveDevice extends DucoDevice {
     FlowHelper.triggerChangedValueFlowCards(
       this,
       oldCapabilityValues.sensorAirQualityCO2 || 0,
-      this.getCapabilityValue('sensor_air_quality_co2'),
+      this.getCapabilityValue('sensor_air_quality_co2') || 0,
       'co2-humidity-valve__sensor_air_quality_co2_changed'
     );
   }

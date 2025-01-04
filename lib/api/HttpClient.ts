@@ -27,6 +27,7 @@ export default class HttpClient {
                 return reject(new Error(this.homey.__('error.hostname_not_set')));
             }
 
+            const homey = this.homey;
             const options = {
                 method: 'GET',
                 hostname: this.hostname,
@@ -37,23 +38,42 @@ export default class HttpClient {
                 },
                 maxRedirects: 5,
                 rejectUnauthorized: false,
-                timeout: 5000,
+                timeout: 9000,
             };
-    
+
+            homey.log(`sending GET request to "https://${options.hostname}${options.path}"`);
+
             const req = https.request(options, res => {
-                if (res.statusCode !== 200) {
-                    return reject(new Error(`Failed to GET url: ${options.path} (status code: ${res.statusCode})`));
-                }
+                homey.log(`http status code: ${res.statusCode}`);
 
                 const data: string[] = [];
-
                 res.on('data', chunk => data.push(chunk));
+
                 res.on('end', () => {
+                    homey.log(`response: "${data.join('')}"`);
+
+                    if (res.statusCode !== 200) {
+                        return reject(new Error(`Failed to GET url: ${options.path} (status code: ${res.statusCode})`));
+                    }
+
                     return resolve(data.join(''));
                 });
             });
 
-            req.on('error', error => reject(error));
+            req.setTimeout(options.timeout, function() {
+                req.destroy();
+            });
+
+            req.on('error', error => {
+                homey.error(error);
+
+                if (error.message === 'socket hang up') {
+                    return reject(new Error(`Request timed out after ${options.timeout} ms while conneting to ${options.hostname}`));
+                }
+
+                return reject(error)
+            });
+
             req.end();
         });
     }
@@ -66,7 +86,6 @@ export default class HttpClient {
 
             const homey = this.homey;
             const body = JSON.stringify(postData);
-
             const options = {
                 method: 'POST',
                 hostname: this.hostname,
@@ -79,33 +98,39 @@ export default class HttpClient {
                 },
                 maxRedirects: 5,
                 rejectUnauthorized: false,
-                timeout: 5000,
+                timeout: 9000,
             };
 
             homey.log(`sending POST request to "https://${options.hostname}${options.path}"`);
             homey.log(`body: "${body}"`);
 
             const req = https.request(options, res => {
-                if (res.statusCode !== 200) {
-                    homey.error(`Failed to POST to url: ${options.path} (status code: ${res.statusCode})`);
-
-                    return reject(new Error(`Failed to POST to url: ${options.path} (status code: ${res.statusCode})`));
-                }
-
                 homey.log(`http status code: ${res.statusCode}`);
 
                 const data: string[] = [];
-
                 res.on('data', chunk => data.push(chunk));
+
                 res.on('end', () => {
                     homey.log(`response: "${data.join('')}"`);
+
+                    if (res.statusCode !== 200) {
+                        return reject(new Error(`Failed to POST to url: ${options.path} (status code: ${res.statusCode})`));
+                    }
 
                     return resolve(data.join(''));
                 });
             });
 
+            req.setTimeout(options.timeout, function() {
+                req.destroy();
+            });
+
             req.on('error', error => {
                 homey.error(error);
+
+                if (error.message === 'socket hang up') {
+                    return reject(new Error(`Request timed out after ${options.timeout} ms while conneting to ${options.hostname}`));
+                }
 
                 return reject(error)
             });

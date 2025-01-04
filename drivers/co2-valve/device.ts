@@ -132,7 +132,7 @@ class CO2ValveDevice extends DucoDevice {
     FlowHelper.triggerChangedValueFlowCards(
       this,
       oldCapabilityValues.sensorAirQualityCO2 || 0,
-      this.getCapabilityValue('sensor_air_quality_co2'),
+      this.getCapabilityValue('sensor_air_quality_co2') || 0,
       'co2-valve__sensor_air_quality_co2_changed'
     );
   }
