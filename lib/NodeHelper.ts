@@ -22,6 +22,8 @@ export default class NodeHelper {
                 return ['co2-valve'];
             case 'VLVRH':
                 return ['humidity-valve'];
+            case 'VLVCO2RH':
+                return ['co2-humidity-valve'];
         }
 
         return [];
