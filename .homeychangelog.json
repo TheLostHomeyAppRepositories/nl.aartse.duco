@@ -22,5 +22,8 @@
   },
   "1.5.1": {
     "en": "added new devices: user-control and valve. added ventilation capabilities for room sensors. and some minor improvements."
+  },
+  "1.6.0": {
+    "en": "Added support for new device co2-humidity-valve. Added flow condition cards for state and mode."
   }
 }
