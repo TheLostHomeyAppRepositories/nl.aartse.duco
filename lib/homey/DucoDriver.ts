@@ -6,7 +6,10 @@ export default class DucoDriver extends Homey.Driver {
     updateByNode(node: NodeInterface) {
       this.getDevices().forEach((device: Device) => {
         device.setAvailable();
-        (<DucoDevice>device).updateByNode(node);
+        if (device.getData().id === node.Node) {
+          this.homey.log('updating "'+this.id+'" named "'+device.getName()+'" with node "'+node.Node+'"');
+          (<DucoDevice>device).updateByNode(node);
+        }
       })
     }
 
