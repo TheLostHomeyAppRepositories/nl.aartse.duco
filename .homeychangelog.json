@@ -25,5 +25,8 @@
   },
   "1.6.0": {
     "en": "Added support for new device co2-humidity-valve. Added flow condition cards for state and mode."
+  },
+  "1.7.0": {
+    "en": "fixed an issue with the same capability values and fixed some connectivity issues"
   }
 }
