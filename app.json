@@ -4979,6 +4979,7 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_ventilation_flow_level_target",
         "sensor_air_quality_rh",
         "sensor_air_quality_co2"
       ],
@@ -5058,6 +5059,7 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_ventilation_flow_level_target",
         "sensor_air_quality_co2"
       ],
       "platforms": [
@@ -5097,7 +5099,8 @@
         "ventilation_time_state_remain",
         "ventilation_time_state_end",
         "ventilation_mode",
-        "ventilation_flow_level_target"
+        "ventilation_flow_level_target",
+        "measure_ventilation_flow_level_target"
       ],
       "platforms": [
         "local"
@@ -5137,6 +5140,7 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_ventilation_flow_level_target",
         "sensor_air_quality_rh",
         "sensor_air_quality_co2"
       ],
@@ -5251,6 +5255,7 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_ventilation_flow_level_target",
         "sensor_air_quality_rh"
       ],
       "platforms": [
@@ -5327,7 +5332,8 @@
         "ventilation_time_state_remain",
         "ventilation_time_state_end",
         "ventilation_mode",
-        "ventilation_flow_level_target"
+        "ventilation_flow_level_target",
+        "measure_ventilation_flow_level_target"
       ],
       "platforms": [
         "local"
@@ -5378,6 +5384,21 @@
     }
   },
   "capabilities": {
+    "measure_ventilation_flow_level_target": {
+      "type": "number",
+      "title": {
+        "en": "Flow level target",
+        "nl": "Doel doorstroomniveau"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "uiComponent": null
+    },
     "sensor_air_quality_co2": {
       "type": "number",
       "title": {

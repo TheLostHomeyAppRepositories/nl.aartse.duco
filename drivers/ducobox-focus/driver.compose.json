@@ -9,7 +9,8 @@
     "ventilation_time_state_remain",
     "ventilation_time_state_end",
     "ventilation_mode",
-    "ventilation_flow_level_target"
+    "ventilation_flow_level_target",
+    "measure_ventilation_flow_level_target"
   ],
   "platforms": [
     "local"

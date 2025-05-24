@@ -30,6 +30,9 @@ class Co2HumidityValveDevice extends DucoDevice {
     if (!this.hasCapability('ventilation_flow_level_target')) {
       await this.addCapability('ventilation_flow_level_target');
     }
+    if (!this.hasCapability('measure_ventilation_flow_level_target')) {
+      await this.addCapability('measure_ventilation_flow_level_target');
+    }
     if (!this.hasCapability('sensor_air_quality_rh')) {
       await this.addCapability('sensor_air_quality_rh');
     }

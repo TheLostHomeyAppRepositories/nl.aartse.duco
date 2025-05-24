@@ -30,6 +30,9 @@ class DucoboxFocusDevice extends DucoDevice {
     if (!this.hasCapability('ventilation_flow_level_target')) {
       await this.addCapability('ventilation_flow_level_target');
     }
+    if (!this.hasCapability('measure_ventilation_flow_level_target')) {
+      await this.addCapability('measure_ventilation_flow_level_target');
+    }
 
     this.registerCapabilityListener('ventilation_state', (value) => {
       this.homey.log(`ventilation_state capability has been changed to ${value}`);
@@ -65,7 +68,8 @@ class DucoboxFocusDevice extends DucoDevice {
       this.setCapabilityValue('ventilation_time_state_remain', (node.Ventilation && node.Ventilation.TimeStateRemain) ? node.Ventilation.TimeStateRemain.Val : null),
       this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
       this.setCapabilityValue('ventilation_mode', (node.Ventilation && node.Ventilation.Mode) ? node.Ventilation.Mode.Val : null),
-      this.setCapabilityValue('ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null)
+      this.setCapabilityValue('ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null),
+      this.setCapabilityValue('measure_ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {

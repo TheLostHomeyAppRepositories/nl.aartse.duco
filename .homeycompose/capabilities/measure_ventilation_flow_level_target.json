@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Flow level target",
+        "nl": "Doel doorstroomniveau"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "%",
+        "nl": "%"
+    },
+    "uiComponent": null
+}

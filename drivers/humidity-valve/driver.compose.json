@@ -10,6 +10,7 @@
     "ventilation_time_state_end",
     "ventilation_mode",
     "ventilation_flow_level_target",
+    "measure_ventilation_flow_level_target",
     "sensor_air_quality_rh"
   ],
   "platforms": [
