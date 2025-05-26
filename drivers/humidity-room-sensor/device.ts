@@ -27,6 +27,9 @@ class HumidityRoomSensorDevice extends DucoDevice {
     if (!this.hasCapability('sensor_air_quality_rh')) {
       await this.addCapability('sensor_air_quality_rh');
     }
+    if (!this.hasCapability('measure_sensor_air_quality_rh')) {
+      await this.addCapability('measure_sensor_air_quality_rh');
+    }
 
     this.registerCapabilityListener('ventilation_state', (value) => {
       this.homey.log(`ventilation_state capability has been changed to ${value}`);
@@ -60,7 +63,8 @@ class HumidityRoomSensorDevice extends DucoDevice {
       this.setCapabilityValue('ventilation_state', (node.Ventilation && node.Ventilation.State) ? node.Ventilation.State.Val : null),
       this.setCapabilityValue('ventilation_time_state_remain', (node.Ventilation && node.Ventilation.TimeStateRemain) ? node.Ventilation.TimeStateRemain.Val : null),
       this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
-      this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null)
+      this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null),
+      this.setCapabilityValue('measure_sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {

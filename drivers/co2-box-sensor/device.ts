@@ -16,6 +16,9 @@ class CO2BoxSensorDevice extends DucoDevice {
     if (!this.hasCapability('sensor_air_quality_co2')) {
       await this.addCapability('sensor_air_quality_co2');
     }
+    if (!this.hasCapability('measure_sensor_air_quality_co2')) {
+      await this.addCapability('measure_sensor_air_quality_co2');
+    }
   }
 
   updateByNode(node: NodeInterface): void {
@@ -25,7 +28,8 @@ class CO2BoxSensorDevice extends DucoDevice {
     }
 
     Promise.all([
-      this.setCapabilityValue('sensor_air_quality_co2', (node.Sensor && node.Sensor.IaqCo2) ? node.Sensor.IaqCo2.Val : null)
+      this.setCapabilityValue('sensor_air_quality_co2', (node.Sensor && node.Sensor.IaqCo2) ? node.Sensor.IaqCo2.Val : null),
+      this.setCapabilityValue('measure_sensor_air_quality_co2', (node.Sensor && node.Sensor.IaqCo2) ? node.Sensor.IaqCo2.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {

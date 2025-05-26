@@ -5,7 +5,8 @@
   },
   "class": "sensor",
   "capabilities": [
-    "sensor_air_quality_rh"
+    "sensor_air_quality_rh",
+    "measure_sensor_air_quality_rh"
   ],
   "platforms": [
     "local"

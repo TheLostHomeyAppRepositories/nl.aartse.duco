@@ -4939,7 +4939,8 @@
       },
       "class": "sensor",
       "capabilities": [
-        "sensor_air_quality_co2"
+        "sensor_air_quality_co2",
+        "measure_sensor_air_quality_co2"
       ],
       "platforms": [
         "local"
@@ -4979,9 +4980,11 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
-        "measure_ventilation_flow_level_target",
         "sensor_air_quality_rh",
-        "sensor_air_quality_co2"
+        "sensor_air_quality_co2",
+        "measure_ventilation_flow_level_target",
+        "measure_sensor_air_quality_rh",
+        "measure_sensor_air_quality_co2"
       ],
       "platforms": [
         "local"
@@ -5019,7 +5022,8 @@
         "ventilation_state",
         "ventilation_time_state_remain",
         "ventilation_time_state_end",
-        "sensor_air_quality_co2"
+        "sensor_air_quality_co2",
+        "measure_sensor_air_quality_co2"
       ],
       "platforms": [
         "local"
@@ -5059,8 +5063,9 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "sensor_air_quality_co2",
         "measure_ventilation_flow_level_target",
-        "sensor_air_quality_co2"
+        "measure_sensor_air_quality_co2"
       ],
       "platforms": [
         "local"
@@ -5140,9 +5145,11 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
-        "measure_ventilation_flow_level_target",
         "sensor_air_quality_rh",
-        "sensor_air_quality_co2"
+        "sensor_air_quality_co2",
+        "measure_ventilation_flow_level_target",
+        "measure_sensor_air_quality_rh",
+        "measure_sensor_air_quality_co2"
       ],
       "platforms": [
         "local"
@@ -5177,7 +5184,8 @@
       },
       "class": "sensor",
       "capabilities": [
-        "sensor_air_quality_rh"
+        "sensor_air_quality_rh",
+        "measure_sensor_air_quality_rh"
       ],
       "platforms": [
         "local"
@@ -5215,7 +5223,8 @@
         "ventilation_state",
         "ventilation_time_state_remain",
         "ventilation_time_state_end",
-        "sensor_air_quality_rh"
+        "sensor_air_quality_rh",
+        "measure_sensor_air_quality_rh"
       ],
       "platforms": [
         "local"
@@ -5255,8 +5264,9 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "sensor_air_quality_rh",
         "measure_ventilation_flow_level_target",
-        "sensor_air_quality_rh"
+        "measure_sensor_air_quality_rh"
       ],
       "platforms": [
         "local"
@@ -5384,6 +5394,36 @@
     }
   },
   "capabilities": {
+    "measure_sensor_air_quality_co2": {
+      "type": "number",
+      "title": {
+        "en": "Air quality (CO2)",
+        "nl": "Lucht kwaliteit (CO2)"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "uiComponent": null
+    },
+    "measure_sensor_air_quality_rh": {
+      "type": "number",
+      "title": {
+        "en": "Air quality (RH)",
+        "nl": "Lucht kwaliteit (RH)"
+      },
+      "insights": false,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "uiComponent": null
+    },
     "measure_ventilation_flow_level_target": {
       "type": "number",
       "title": {

@@ -30,11 +30,14 @@ class HumidityValveDevice extends DucoDevice {
     if (!this.hasCapability('ventilation_flow_level_target')) {
       await this.addCapability('ventilation_flow_level_target');
     }
+    if (!this.hasCapability('sensor_air_quality_rh')) {
+      await this.addCapability('sensor_air_quality_rh');
+    }
     if (!this.hasCapability('measure_ventilation_flow_level_target')) {
       await this.addCapability('measure_ventilation_flow_level_target');
     }
-    if (!this.hasCapability('sensor_air_quality_rh')) {
-      await this.addCapability('sensor_air_quality_rh');
+    if (!this.hasCapability('measure_sensor_air_quality_rh')) {
+      await this.addCapability('measure_sensor_air_quality_rh');
     }
 
     this.registerCapabilityListener('ventilation_state', (value) => {
@@ -73,8 +76,9 @@ class HumidityValveDevice extends DucoDevice {
       this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
       this.setCapabilityValue('ventilation_mode', (node.Ventilation && node.Ventilation.Mode) ? node.Ventilation.Mode.Val : null),
       this.setCapabilityValue('ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null),
+      this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null),
       this.setCapabilityValue('measure_ventilation_flow_level_target', (node.Ventilation && node.Ventilation.FlowLvlTgt) ? node.Ventilation.FlowLvlTgt.Val : null),
-      this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null)
+      this.setCapabilityValue('measure_sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {

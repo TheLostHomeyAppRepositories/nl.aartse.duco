@@ -10,8 +10,9 @@
     "ventilation_time_state_end",
     "ventilation_mode",
     "ventilation_flow_level_target",
+    "sensor_air_quality_co2",
     "measure_ventilation_flow_level_target",
-    "sensor_air_quality_co2"
+    "measure_sensor_air_quality_co2"
   ],
   "platforms": [
     "local"

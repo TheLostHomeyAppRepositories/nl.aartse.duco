@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Air quality (CO2)",
+        "nl": "Lucht kwaliteit (CO2)"
+    },
+    "insights": false,
+    "getable": true,
+    "setable": false,
+    "units": {
+        "en": "%",
+        "nl": "%"
+    },
+    "uiComponent": null
+}
