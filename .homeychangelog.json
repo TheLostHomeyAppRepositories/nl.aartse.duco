@@ -28,5 +28,8 @@
   },
   "1.7.0": {
     "en": "fixed an issue with the same capability values and fixed some connectivity issues"
+  },
+  "1.8.0": {
+    "en": "added device status indicators for co2 air quality, rh air quality and flow level target values"
   }
 }
