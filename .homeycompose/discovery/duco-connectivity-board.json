@@ -1,0 +1,9 @@
+{
+  "type": "mdns-sd",
+  "mdns-sd": {
+    "name": "https",
+    "protocol": "tcp"
+  },
+  "id": "{{txt.serialducobox}}",
+  "conditions": []
+}

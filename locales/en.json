@@ -2,8 +2,15 @@
     "settings": {
         "title": "App settings",
         "hostname": "IP / Hostname DucoBox",
-        "hostname_hint": "This is the local IP address of the Connectivity Board.",
-        "save": "Save"
+        "hostname_hint": "This is the IP address of the Connectivity Board on your local network.",
+        "nothing_found": "Nothing found.",
+        "name": "Name",
+        "ip_address": "IP address",
+        "select": "Select",
+        "save": "Save",
+        "search": "Search",
+        "cancel": "Cancel",
+        "saved": "Settings saved"
     },
     "error": {
         "hostname_not_set": "The DucoBox's IP is not set in the app settings"

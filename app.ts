@@ -5,6 +5,7 @@ import UpdateListener from './lib/UpdateListner';
 import DucoApi from './lib/api/DucoApi';
 import NodeActionEnum from './lib/api/types/NodeActionEnum';
 import NodeHelper from './lib/NodeHelper';
+import DiscoveryService from './lib/DiscoveryService';
 
 export default class DucoApp extends Homey.App {
   ducoApi!: DucoApi
@@ -14,6 +15,8 @@ export default class DucoApp extends Homey.App {
 
     const updateListner = UpdateListener.create(this.homey);
     updateListner.startListener();
+
+    DiscoveryService.create(this.homey).discover();
   }
 
   updateBoxState(state: string) {

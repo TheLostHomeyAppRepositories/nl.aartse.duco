@@ -2,6 +2,7 @@
 <html>
   <head>
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="homey-header">
@@ -9,36 +10,133 @@
       <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
     </header>
 
-    <div class="homey-form-group">
-      <label class="homey-form-label" for="hostname" data-i18n="settings.hostname">IP / Hostname Ducobox</label>
-      <input class="homey-form-input" id="hostname" type="text" value="" />
-    </div>
-    <p data-i18n="settings.hostname_hint"></p>
+    <div id="mainView">
+      <div class="homey-form-group">
+        <label class="homey-form-label" for="hostname" data-i18n="settings.hostname">IP / Hostname Ducobox</label>
+        <input class="homey-form-input" id="hostname" type="text" value="" />
+      </div>
+      <p data-i18n="settings.hostname_hint"></p>
 
-    <button id="save" class="homey-button-primary-full" data-i18n="settings.save">Save changes</button>
+      <button id="searchButton" class="homey-button-primary-full" data-i18n="settings.search">Search for Docuboxes</button>
+      <br />
+      <button id="saveButton" class="homey-button-primary-full" data-i18n="settings.save">Save changes</button>
+    </div>
+
+    <div id="searchView" style="display:none">
+      <div id="duco_boxes_list"></div>
+      <br />
+      <button id="cancelSearchButton" class="homey-button-primary-full" data-i18n="settings.cancel">Cancel search</button>
+    </div>
 
     <script type="text/javascript">
+      const mainView = document.getElementById("mainView");
+      const searchView = document.getElementById("searchView");
+      const hostnameInputElement = document.getElementById("hostname");
+      const searchButtonElement = document.getElementById("searchButton");
+      const cancelSearchButtonElement = document.getElementById("cancelSearchButton");
+      const saveButtonElement = document.getElementById("saveButton");
+
       function onHomeyReady(Homey) {
         Homey.ready();
 
-        var hostnameElement = document.getElementById("hostname");
-        var saveElement = document.getElementById("save");
-
-        Homey.get("hostname", function (err, username) {
+        Homey.get("hostname", function (err, hostname) {
           if (err) {
             return Homey.alert(err);
           }
 
-          hostnameElement.value = username;
+          hostnameInputElement.value = hostname;
         });
 
-        saveElement.addEventListener("click", function (e) {
-          Homey.set("hostname", hostnameElement.value, function (err) {
-            if (err) {
-              return Homey.alert(err);
+        searchButtonElement.addEventListener("click", function (e) {
+          searchView.style.display = '';
+          mainView.style.display = 'none';
+
+          Homey.get("discoveredDucoBoxes", function (err, discoveredDucoBoxes) {
+            if (Array.isArray(discoveredDucoBoxes)) {
+              refreshDiscoveredDucoBoxes(discoveredDucoBoxes);
             }
           });
         });
+
+        cancelSearchButtonElement.addEventListener("click", function (e) {
+          searchView.style.display = 'none';
+          mainView.style.display = '';
+        });
+
+        saveButtonElement.addEventListener("click", function (e) {
+          Homey.set("hostname", hostnameInputElement.value, function (err) {
+            if (err) {
+              return Homey.alert(err);
+            }
+
+            Homey.alert(Homey.__('settings.saved'));
+          });
+        });
+      }
+
+      function refreshDiscoveredDucoBoxes(discoveredDucoBoxes) {
+
+        const docuBoxesListElement = document.getElementById("duco_boxes_list");
+        docuBoxesListElement.innerHTML = '';
+
+        if (discoveredDucoBoxes.length === 0) {
+          docuBoxesListElement.innerHTML = Homey.__('settings.nothing_found');
+          return;
+        }
+
+        const table = document.createElement("table");
+		    table.setAttribute('class', 'decorated');
+
+        // add header
+        var tableRow = document.createElement("tr");
+        table.appendChild(tableRow);
+
+        var tableCell = document.createElement("th");
+        tableCell.innerText = Homey.__('settings.name');
+        tableRow.appendChild(tableCell);
+
+        var tableCell = document.createElement("th");
+        tableCell.innerText = Homey.__('settings.ip_address');
+        tableRow.appendChild(tableCell);
+
+        var tableCell = document.createElement("th");
+        tableCell.innerText = ' ';
+        tableRow.appendChild(tableCell);
+
+        // add boxes
+        for (var i=0; i<discoveredDucoBoxes.length; i++) {
+          var discoveredDucoBox = discoveredDucoBoxes[i];
+
+          var tableRow = document.createElement("tr");
+          table.appendChild(tableRow);
+
+          var tableCell = document.createElement("td");
+          tableCell.innerText = discoveredDucoBox.name;
+          tableRow.appendChild(tableCell);
+
+          var tableCell = document.createElement("td");
+          tableCell.innerText = discoveredDucoBox.address;
+          tableRow.appendChild(tableCell);
+
+          var tableCell = document.createElement("td");
+          var okButton = document.createElement("button");
+          okButton.innerText = Homey.__('settings.select');
+          okButton.addEventListener("click", function (e) {
+            setHostname(discoveredDucoBox.address);
+          });
+          tableCell.style.textAlign = 'right';
+          tableCell.appendChild(okButton);
+          tableRow.appendChild(tableCell);
+        }
+
+        docuBoxesListElement.appendChild(table);
+      }
+
+      function setHostname(hostname) {
+        hostnameInputElement.value = hostname;
+
+        searchView.style.display = 'none';
+        mainView.style.display = '';
       }
     </script>
   </body>
