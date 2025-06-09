@@ -12,12 +12,18 @@
 
     <div id="mainView">
       <div class="homey-form-group">
-        <label class="homey-form-label" for="hostname" data-i18n="settings.hostname">IP / Hostname Ducobox</label>
-        <input class="homey-form-input" id="hostname" type="text" value="" />
+        <label class="homey-form-label" for="hostnameInput" data-i18n="settings.hostname">IP / Hostname Ducobox</label>
+        <input class="homey-form-input" id="hostnameInput" type="text" value="" />
+        <p data-i18n="settings.hostname_hint"></p>
       </div>
-      <p data-i18n="settings.hostname_hint"></p>
 
-      <button id="searchButton" class="homey-button-primary-full" data-i18n="settings.search">Search for Docuboxes</button>
+      <label class="homey-form-checkbox">
+        <input type="checkbox" id="useHttpsInput" class="homey-form-checkbox-input" />
+        <span class="homey-form-checkbox-checkmark"></span>
+        <span class="homey-form-checkbox-text" data-i18n="settings.use_https">Use https</label>
+      </label>
+
+      <button id="searchButton" class="homey-button-secondary-shadow-full" data-i18n="settings.search">Search for Docuboxes</button>
       <br />
       <button id="saveButton" class="homey-button-primary-full" data-i18n="settings.save">Save changes</button>
     </div>
@@ -25,13 +31,14 @@
     <div id="searchView" style="display:none">
       <div id="duco_boxes_list"></div>
       <br />
-      <button id="cancelSearchButton" class="homey-button-primary-full" data-i18n="settings.cancel">Cancel search</button>
+      <button id="cancelSearchButton" class="homey-button-secondary-shadow-full" data-i18n="settings.cancel">Cancel search</button>
     </div>
 
     <script type="text/javascript">
       const mainView = document.getElementById("mainView");
       const searchView = document.getElementById("searchView");
-      const hostnameInputElement = document.getElementById("hostname");
+      const hostnameInputElement = document.getElementById("hostnameInput");
+      const useHttpsInputElement = document.getElementById("useHttpsInput");
       const searchButtonElement = document.getElementById("searchButton");
       const cancelSearchButtonElement = document.getElementById("cancelSearchButton");
       const saveButtonElement = document.getElementById("saveButton");
@@ -39,6 +46,7 @@
       function onHomeyReady(Homey) {
         Homey.ready();
 
+        // init value for hostname input
         Homey.get("hostname", function (err, hostname) {
           if (err) {
             return Homey.alert(err);
@@ -47,42 +55,57 @@
           hostnameInputElement.value = hostname;
         });
 
+        // init value for use https checkbox
+        Homey.get("useHttps", function (err, useHttps) {
+          if (err) {
+            return Homey.alert(err);
+          }
+
+          useHttpsInputElement.checked = useHttps;
+        });
+
+        // handle search button click
         searchButtonElement.addEventListener("click", function (e) {
           searchView.style.display = '';
           mainView.style.display = 'none';
 
           Homey.get("discoveredDucoBoxes", function (err, discoveredDucoBoxes) {
-            if (Array.isArray(discoveredDucoBoxes)) {
-              refreshDiscoveredDucoBoxes(discoveredDucoBoxes);
-            }
+            refreshDiscoveredDucoBoxes(Array.isArray(discoveredDucoBoxes) ? discoveredDucoBoxes : []);
           });
         });
 
+        // handle cancel search button click
         cancelSearchButtonElement.addEventListener("click", function (e) {
           searchView.style.display = 'none';
           mainView.style.display = '';
         });
 
+        // handle save button click
         saveButtonElement.addEventListener("click", function (e) {
-          Homey.set("hostname", hostnameInputElement.value, function (err) {
+          var saveCount = 2;
+          function handleSaveCallback(err) {
             if (err) {
               return Homey.alert(err);
             }
 
-            Homey.alert(Homey.__('settings.saved'));
-          });
+            saveCount--;
+            if (saveCount === 0) {
+              Homey.alert(Homey.__('settings.saved'));
+            }
+          }
+
+          Homey.set("hostname", hostnameInputElement.value, handleSaveCallback);
+          Homey.set("useHttps", useHttpsInputElement.checked, handleSaveCallback);
         });
       }
 
       function refreshDiscoveredDucoBoxes(discoveredDucoBoxes) {
-
         const docuBoxesListElement = document.getElementById("duco_boxes_list");
-        docuBoxesListElement.innerHTML = '';
-
         if (discoveredDucoBoxes.length === 0) {
           docuBoxesListElement.innerHTML = Homey.__('settings.nothing_found');
           return;
         }
+        docuBoxesListElement.innerHTML = '';
 
         const table = document.createElement("table");
 		    table.setAttribute('class', 'decorated');
@@ -96,7 +119,7 @@
         tableRow.appendChild(tableCell);
 
         var tableCell = document.createElement("th");
-        tableCell.innerText = Homey.__('settings.ip_address');
+        tableCell.innerText = Homey.__('settings.url');
         tableRow.appendChild(tableCell);
 
         var tableCell = document.createElement("th");
@@ -115,15 +138,15 @@
           tableRow.appendChild(tableCell);
 
           var tableCell = document.createElement("td");
-          tableCell.innerText = discoveredDucoBox.address;
+          tableCell.innerText = (discoveredDucoBox.port === 80 ? 'http://' : 'https://') + discoveredDucoBox.address;
           tableRow.appendChild(tableCell);
 
           var tableCell = document.createElement("td");
           var okButton = document.createElement("button");
           okButton.innerText = Homey.__('settings.select');
-          okButton.addEventListener("click", function (e) {
-            setHostname(discoveredDucoBox.address);
-          });
+          okButton.className = 'homey-button-small';
+          okButton.discoveredDucoBox = discoveredDucoBox;
+          okButton.addEventListener("click", handleDiscoveredDucoBoxClick);
           tableCell.style.textAlign = 'right';
           tableCell.appendChild(okButton);
           tableRow.appendChild(tableCell);
@@ -132,8 +155,9 @@
         docuBoxesListElement.appendChild(table);
       }
 
-      function setHostname(hostname) {
-        hostnameInputElement.value = hostname;
+      function handleDiscoveredDucoBoxClick(e) {
+        hostnameInputElement.value = e.target.discoveredDucoBox.address;
+        useHttpsInputElement.checked = e.target.discoveredDucoBox.port !== 80;
 
         searchView.style.display = 'none';
         mainView.style.display = '';

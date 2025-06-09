@@ -2,11 +2,13 @@
 
 import Homey from 'homey/lib/Homey';
 import https from 'https';
+import http from 'http';
 
 export default class HttpClient {
 
     homey: Homey
     hostname!: string;
+    useHttps: boolean;
 
     constructor(homey: Homey) {
         this.homey = homey;
@@ -15,10 +17,14 @@ export default class HttpClient {
             if ('hostname' === field) {
                 this.hostname = this.homey.settings.get('hostname');
             }
+            if ('useHttps' === field) {
+                this.useHttps = this.homey.settings.get('useHttps');
+            }
         }
 
         this.homey.settings.on('set', onSettingsChange);
         this.hostname = this.homey.settings.get('hostname');
+        this.useHttps = this.homey.settings.get('useHttps');
     }
 
     get(path: string) : Promise <string> {
@@ -31,7 +37,7 @@ export default class HttpClient {
             const options = {
                 method: 'GET',
                 hostname: this.hostname,
-                port: 443,
+                port: this.useHttps ? 443 : 80,
                 path: path,
                 headers: {
                     'Accept': '*/*',
@@ -41,9 +47,10 @@ export default class HttpClient {
                 timeout: 9000,
             };
 
-            homey.log(`sending GET request to "https://${options.hostname}${options.path}"`);
+            homey.log(`sending GET request to "${this.useHttps ? 'https' : 'http'}://${options.hostname}${options.path}"`);
 
-            const req = https.request(options, res => {
+            const httpClient = this.useHttps ? https : http;
+            const req = httpClient.request(options, res => {
                 homey.log(`http status code: ${res.statusCode}`);
 
                 const data: string[] = [];
@@ -89,7 +96,7 @@ export default class HttpClient {
             const options = {
                 method: 'POST',
                 hostname: this.hostname,
-                port: 443,
+                port: this.useHttps ? 443 : 80,
                 path: path,
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8',
@@ -101,10 +108,11 @@ export default class HttpClient {
                 timeout: 9000,
             };
 
-            homey.log(`sending POST request to "https://${options.hostname}${options.path}"`);
+            homey.log(`sending POST request to "${this.useHttps ? 'https' : 'http'}://${options.hostname}${options.path}"`);
             homey.log(`body: "${body}"`);
 
-            const req = https.request(options, res => {
+            const httpClient = this.useHttps ? https : http;
+            const req = httpClient.request(options, res => {
                 homey.log(`http status code: ${res.statusCode}`);
 
                 const data: string[] = [];

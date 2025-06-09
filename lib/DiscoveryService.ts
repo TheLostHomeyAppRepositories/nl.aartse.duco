@@ -24,22 +24,28 @@ export default class DiscoveryService {
     discover() {
         this.homey.settings.set('discoveredDucoBoxes', []);
 
-        const discoveryStrategy = this.homey.discovery.getStrategy("duco-connectivity-board");
+        const discoveryStrategies = [
+            this.homey.discovery.getStrategy("duco-connectivity-board-https"),
+            this.homey.discovery.getStrategy("duco-connectivity-board-http")
+        ];
 
-        // load initial discovered results
-        const initialDiscoveryResults = discoveryStrategy.getDiscoveryResults();
-        for (const discoveryResult of Object.values(initialDiscoveryResults)) {
-            if (discoveryResult instanceof DiscoveryResultMDNSSD) {
-                this.handleDiscoveryResult(discoveryResult);
+        // loop all discovery strategies
+        for (const discoveryStrategy of discoveryStrategies) {
+            // load initial discovered results
+            const initialDiscoveryResults = discoveryStrategy.getDiscoveryResults();
+            for (const discoveryResult of Object.values(initialDiscoveryResults)) {
+                if (discoveryResult instanceof DiscoveryResultMDNSSD) {
+                    this.handleDiscoveryResult(discoveryResult);
+                }
             }
+
+            // add later discovered results
+            discoveryStrategy.on("result", discoveryResult => {
+                if (discoveryResult instanceof DiscoveryResultMDNSSD) {
+                    this.handleDiscoveryResult(discoveryResult);
+                }
+            });
         }
-
-        // add later discovered results
-        discoveryStrategy.on("result", discoveryResult => {
-            if (discoveryResult instanceof DiscoveryResultMDNSSD) {
-                this.handleDiscoveryResult(discoveryResult);
-            }
-        });
     }
 
     handleDiscoveryResult(discoveryResult: DiscoveryResultMDNSSD) {
@@ -64,6 +70,7 @@ export default class DiscoveryService {
         // save the first result as hostname when no hostname is set and the result address is valid
         if (!this.homey.settings.get('hostname') && discoveryResult.address && discoveryResult.address !== '127.0.0.1' && discoveryResult.address !== '0.0.0.0') {
             this.homey.settings.set('hostname', discoveryResult.address);
+            this.homey.settings.set('useHttps', parseInt(discoveryResult.port) === 80 ? 'http' : 'https');
             
             this.homey.log('Hostname in settings is empty, hostname set to '+discoveryResult.address);
         }

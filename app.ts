@@ -11,6 +11,14 @@ export default class DucoApp extends Homey.App {
   ducoApi!: DucoApi
 
   async onInit() {
+    // init settings
+    if (this.homey.settings.get('hostname') === null) {
+      this.homey.settings.set('hostname', '');
+    }
+    if (this.homey.settings.get('useHttps') === null) {
+      this.homey.settings.set('useHttps', true);
+    }
+
     this.ducoApi = DucoApi.create(this.homey);
 
     const updateListner = UpdateListener.create(this.homey);

@@ -5718,7 +5718,16 @@
     }
   },
   "discovery": {
-    "duco-connectivity-board": {
+    "duco-connectivity-board-http": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.serialducobox}}",
+      "conditions": []
+    },
+    "duco-connectivity-board-https": {
       "type": "mdns-sd",
       "mdns-sd": {
         "name": "https",
