@@ -34,6 +34,7 @@ class UserControlDevice extends DucoDevice {
       }).then(() => {
         // trigger event ventilation_state_changed to update the widget data
         this.homey.api.realtime('ventilation_state_changed', {
+          device_id: this.getAppId(),
           old_value: this.getCapabilityValue('ventilation_state'),
           new_value: value,
         });
@@ -69,6 +70,7 @@ class UserControlDevice extends DucoDevice {
     // trigger event ventilation_state_changed to update the widget data
     if (oldCapabilityValues.ventilationState !== this.getCapabilityValue('ventilation_state')) {
       this.homey.api.realtime('ventilation_state_changed', {
+        device_id: this.getAppId(),
         old_value: oldCapabilityValues.ventilationState,
         new_value: this.getCapabilityValue('ventilation_state'),
       });

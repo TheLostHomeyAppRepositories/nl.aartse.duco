@@ -3,16 +3,23 @@
     "en": "DUCO Remote Switch",
     "nl": "DUCO Bedieningsschakelaar"
   },
+  "devices": {
+    "type": "app",
+    "singular": true,
+    "filter": {
+      "capabilities": "ventilation_state"
+    }
+  },
   "height": "100%",
   "settings": [],
   "api": {
-    "updateBoxState": {
+    "updateVentilationState": {
       "method": "PUT",
-      "path": "/box-state"
+      "path": "/ventilation-state/:id"
     },
-    "getBoxState": {
+    "getVentilationState": {
       "method": "GET",
-      "path": "/box-state"
+      "path": "/ventilation-state/:id"
     }
   }
 }

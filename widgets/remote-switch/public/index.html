@@ -52,16 +52,26 @@
     <script type="text/javascript">
       var longPressTimer = null;
       var currentState = null;
+      var currentDeviceId = 'BOX';
 
       function onHomeyReady(Homey) {
+        // when device id is set for this widget, use this as currentDeviceId
+        // for old apps there is no device id, currentDeviceId is set to BOX.
+        // when the ventilation state is read, then the actual device id is returned and save in currentDeviceId
+        if (Homey.getDeviceIds() && Homey.getDeviceIds()[0]) {
+          currentDeviceId = Homey.getDeviceIds()[0];
+        }
 
         Homey.on('ventilation_state_changed', (event) => {
-          updateButtonState(event.new_value);
+          if (event.device_id === currentDeviceId || 'BOX' === currentDeviceId) {
+            updateButtonState(event.new_value);
+          }
         });
 
-        Homey.api('GET', '/box-state')
+        Homey.api('GET', '/ventilation-state/'+currentDeviceId)
           .then((result) => {
-            updateButtonState(result);
+            currentDeviceId = result.deviceId;
+            updateButtonState(result.state);
           });
 
         Homey.ready();
@@ -160,7 +170,7 @@
         }
 
         // update box state
-        Homey.api('PUT', '/box-state', {
+        Homey.api('PUT', '/ventilation-state/'+currentDeviceId, {
           "state": state
         })
         .then((result) => {

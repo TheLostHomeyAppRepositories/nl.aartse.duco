@@ -19,6 +19,7 @@ class CO2RoomSensorDriver extends DucoDriver {
       }).then(() => {
         // trigger event ventilation_state_changed to update the widget data
         this.homey.api.realtime('ventilation_state_changed', {
+          device_id: args.device.getAppId(),
           old_value: args.device.getCapabilityValue('ventilation_state'),
           new_value: args.ventilation_state,
         });
