@@ -34,5 +34,8 @@
   },
   "1.9.0": {
     "en": "added autodiscovery for ducobox and added a new setting to use http instead of https"
+  },
+  "1.10.0": {
+    "en": "remote switch widget can be used for all devices with 'ventilation_state' capability"
   }
 }
