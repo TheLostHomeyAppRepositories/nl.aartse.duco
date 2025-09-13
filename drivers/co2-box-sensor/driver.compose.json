@@ -5,6 +5,7 @@
   },
   "class": "sensor",
   "capabilities": [
+    "measure_co2",
     "sensor_air_quality_co2",
     "measure_sensor_air_quality_co2"
   ],

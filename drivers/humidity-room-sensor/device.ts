@@ -24,6 +24,9 @@ class HumidityRoomSensorDevice extends DucoDevice {
     if (!this.hasCapability('ventilation_time_state_end')) {
       await this.addCapability('ventilation_time_state_end');
     }
+    if (!this.hasCapability('measure_humidity')) {
+      await this.addCapability('measure_humidity');
+    }
     if (!this.hasCapability('sensor_air_quality_rh')) {
       await this.addCapability('sensor_air_quality_rh');
     }
@@ -57,6 +60,7 @@ class HumidityRoomSensorDevice extends DucoDevice {
       ventilationState: this.getCapabilityValue('ventilation_state'),
       ventilationTimeStateRemain: this.getCapabilityValue('ventilation_time_state_remain'),
       ventilationTimeStateEnd: this.getCapabilityValue('ventilation_time_state_end'),
+      sensorRH: this.getCapabilityValue('measure_humidity'),
       sensorAirQualityRH: this.getCapabilityValue('sensor_air_quality_rh'),
     }
 
@@ -64,13 +68,13 @@ class HumidityRoomSensorDevice extends DucoDevice {
       this.setCapabilityValue('ventilation_state', (node.Ventilation && node.Ventilation.State) ? node.Ventilation.State.Val : null),
       this.setCapabilityValue('ventilation_time_state_remain', (node.Ventilation && node.Ventilation.TimeStateRemain) ? node.Ventilation.TimeStateRemain.Val : null),
       this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
+      this.setCapabilityValue('measure_humidity', (node.Sensor && node.Sensor.Rh) ? node.Sensor.Rh.Val : null),
       this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null),
       this.setCapabilityValue('measure_sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {
       this.homey.log(err)
-      throw err
     })
   }
 

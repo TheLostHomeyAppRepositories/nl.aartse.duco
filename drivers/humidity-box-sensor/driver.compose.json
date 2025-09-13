@@ -5,6 +5,7 @@
   },
   "class": "sensor",
   "capabilities": [
+    "measure_humidity",
     "sensor_air_quality_rh",
     "measure_sensor_air_quality_rh"
   ],

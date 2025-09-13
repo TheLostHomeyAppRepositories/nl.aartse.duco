@@ -24,6 +24,9 @@ class Co2RoomSensorDevice extends DucoDevice {
     if (!this.hasCapability('ventilation_time_state_end')) {
       await this.addCapability('ventilation_time_state_end');
     }
+    if (!this.hasCapability('measure_co2')) {
+      await this.addCapability('measure_co2');
+    }
     if (!this.hasCapability('sensor_air_quality_co2')) {
       await this.addCapability('sensor_air_quality_co2');
     }
@@ -57,6 +60,7 @@ class Co2RoomSensorDevice extends DucoDevice {
       ventilationState: this.getCapabilityValue('ventilation_state'),
       ventilationTimeStateRemain: this.getCapabilityValue('ventilation_time_state_remain'),
       ventilationTimeStateEnd: this.getCapabilityValue('ventilation_time_state_end'),
+      sensorCO2: this.getCapabilityValue('measure_co2'),
       sensorAirQualityCO2: this.getCapabilityValue('sensor_air_quality_co2'),
     }
 
@@ -64,13 +68,13 @@ class Co2RoomSensorDevice extends DucoDevice {
       this.setCapabilityValue('ventilation_state', (node.Ventilation && node.Ventilation.State) ? node.Ventilation.State.Val : null),
       this.setCapabilityValue('ventilation_time_state_remain', (node.Ventilation && node.Ventilation.TimeStateRemain) ? node.Ventilation.TimeStateRemain.Val : null),
       this.setCapabilityValue('ventilation_time_state_end', (node.Ventilation && node.Ventilation.TimeStateEnd && node.Ventilation.TimeStateEnd.Val) ? (new Date(node.Ventilation.TimeStateEnd.Val * 1000)).toLocaleString(this.homey.i18n.getLanguage(), { timeZone: this.homey.clock.getTimezone() }) : null),
+      this.setCapabilityValue('measure_co2', (node.Sensor && node.Sensor.Co2) ? node.Sensor.Co2.Val : null),
       this.setCapabilityValue('sensor_air_quality_co2', (node.Sensor && node.Sensor.IaqCo2) ? node.Sensor.IaqCo2.Val : null),
       this.setCapabilityValue('measure_sensor_air_quality_co2', (node.Sensor && node.Sensor.IaqCo2) ? node.Sensor.IaqCo2.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {
       this.homey.log(err)
-      throw err
     })
   }
 

@@ -61,7 +61,6 @@ class UserControlDevice extends DucoDevice {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {
       this.homey.log(err)
-      throw err
     })
   }
 

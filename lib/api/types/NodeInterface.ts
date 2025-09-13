@@ -43,7 +43,13 @@ interface NodeInterface {
         }|undefined;
     }|undefined;
     Sensor: {
+        Rh: {
+            Val: number;
+        }|undefined;
         IaqRh: {
+            Val: number;
+        }|undefined;
+        Co2: {
             Val: number;
         }|undefined;
         IaqCo2: {

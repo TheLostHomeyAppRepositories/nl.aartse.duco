@@ -10,6 +10,7 @@
     "ventilation_time_state_end",
     "ventilation_mode",
     "ventilation_flow_level_target",
+    "measure_co2",
     "sensor_air_quality_co2",
     "measure_ventilation_flow_level_target",
     "measure_sensor_air_quality_co2"

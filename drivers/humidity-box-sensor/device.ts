@@ -13,6 +13,9 @@ class HumidityBoxSensorDevice extends DucoDevice {
   }
 
   async initCapabilities() {
+    if (!this.hasCapability('measure_humidity')) {
+      await this.addCapability('measure_humidity');
+    }
     if (!this.hasCapability('sensor_air_quality_rh')) {
       await this.addCapability('sensor_air_quality_rh');
     }
@@ -24,17 +27,18 @@ class HumidityBoxSensorDevice extends DucoDevice {
   updateByNode(node: NodeInterface): void {
     // save old capability values fo tigger cards
     const oldCapabilityValues = <DucoBoxCapabilityValues> {
+      sensorRH: this.getCapabilityValue('measure_humidity'),
       sensorAirQualityRH: this.getCapabilityValue('sensor_air_quality_rh'),
     }
 
     Promise.all([
+      this.setCapabilityValue('measure_humidity', (node.Sensor && node.Sensor.Rh) ? node.Sensor.Rh.Val : null),
       this.setCapabilityValue('sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null),
       this.setCapabilityValue('measure_sensor_air_quality_rh', (node.Sensor && node.Sensor.IaqRh) ? node.Sensor.IaqRh.Val : null)
     ]).then(() => {
       this.triggerFlowCards(oldCapabilityValues)
     }).catch((err) => {
       this.homey.log(err)
-      throw err
     })
   }
 

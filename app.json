@@ -4939,6 +4939,7 @@
       },
       "class": "sensor",
       "capabilities": [
+        "measure_co2",
         "sensor_air_quality_co2",
         "measure_sensor_air_quality_co2"
       ],
@@ -4980,7 +4981,9 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_humidity",
         "sensor_air_quality_rh",
+        "measure_co2",
         "sensor_air_quality_co2",
         "measure_ventilation_flow_level_target",
         "measure_sensor_air_quality_rh",
@@ -5022,6 +5025,7 @@
         "ventilation_state",
         "ventilation_time_state_remain",
         "ventilation_time_state_end",
+        "measure_co2",
         "sensor_air_quality_co2",
         "measure_sensor_air_quality_co2"
       ],
@@ -5063,6 +5067,7 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_co2",
         "sensor_air_quality_co2",
         "measure_ventilation_flow_level_target",
         "measure_sensor_air_quality_co2"
@@ -5145,7 +5150,9 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_humidity",
         "sensor_air_quality_rh",
+        "measure_co2",
         "sensor_air_quality_co2",
         "measure_ventilation_flow_level_target",
         "measure_sensor_air_quality_rh",
@@ -5184,6 +5191,7 @@
       },
       "class": "sensor",
       "capabilities": [
+        "measure_humidity",
         "sensor_air_quality_rh",
         "measure_sensor_air_quality_rh"
       ],
@@ -5223,6 +5231,7 @@
         "ventilation_state",
         "ventilation_time_state_remain",
         "ventilation_time_state_end",
+        "measure_humidity",
         "sensor_air_quality_rh",
         "measure_sensor_air_quality_rh"
       ],
@@ -5264,6 +5273,7 @@
         "ventilation_time_state_end",
         "ventilation_mode",
         "ventilation_flow_level_target",
+        "measure_humidity",
         "sensor_air_quality_rh",
         "measure_ventilation_flow_level_target",
         "measure_sensor_air_quality_rh"
