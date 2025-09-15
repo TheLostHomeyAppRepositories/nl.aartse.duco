@@ -37,5 +37,8 @@
   },
   "1.10.0": {
     "en": "remote switch widget can be used for all devices with 'ventilation_state' capability"
+  },
+  "1.11.0": {
+    "en": "added support for RH and Co2 values"
   }
 }
