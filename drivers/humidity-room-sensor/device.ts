@@ -1,17 +1,18 @@
 import DucoDevice from '../../lib/homey/DucoDevice';
 import NodeInterface from '../../lib/api/types/NodeInterface';
-import DucoApi from '../../lib/api/DucoApi';
+import DucoApi from '../../lib/api/types/DucoApi';
 import DucoBoxCapabilityValues from '../../lib/types/DucoBoxCapabilityValues';
 import FlowHelper from '../../lib/FlowHelper';
 import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
 import UpdateListener from '../../lib/UpdateListner';
+import DucoApiFactory from '../../lib/api/DucoApiFactory';
 
 class HumidityRoomSensorDevice extends DucoDevice {
   ducoApi!: DucoApi
 
   async onInit() {
     await this.initCapabilities();
-    this.ducoApi = DucoApi.create(this.homey);
+    this.ducoApi = DucoApiFactory.create(this.homey);
   }
 
   async initCapabilities() {

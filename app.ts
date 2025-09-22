@@ -2,10 +2,10 @@
 
 import Homey, { Device } from 'homey';
 import UpdateListener from './lib/UpdateListner';
-import DucoApi from './lib/api/DucoApi';
-import NodeActionEnum from './lib/api/types/NodeActionEnum';
 import NodeHelper from './lib/NodeHelper';
 import DiscoveryService from './lib/DiscoveryService';
+import DucoApiFactory from './lib/api/DucoApiFactory';
+import DucoApi from './lib/api/types/DucoApi';
 
 export default class DucoApp extends Homey.App {
   ducoApi!: DucoApi
@@ -19,7 +19,11 @@ export default class DucoApp extends Homey.App {
       this.homey.settings.set('useHttps', true);
     }
 
-    this.ducoApi = DucoApi.create(this.homey);
+    if (this.homey.settings.get('useCommunicationPrintApi') === null) {
+      this.homey.settings.set('useCommunicationPrintApi', false);
+    }
+
+    this.ducoApi = DucoApiFactory.create(this.homey);
 
     const updateListner = UpdateListener.create(this.homey);
     updateListner.startListener();

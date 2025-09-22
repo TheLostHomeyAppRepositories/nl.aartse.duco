@@ -1,14 +1,15 @@
-import DucoApi from '../../lib/api/DucoApi';
+import DucoApi from '../../lib/api/types/DucoApi';
 import NodeHelper from '../../lib/NodeHelper';
 import DucoDriver from '../../lib/homey/DucoDriver';
 import UpdateListener from '../../lib/UpdateListner';
 import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
+import DucoApiFactory from '../../lib/api/DucoApiFactory';
 
 class DucoboxSilentConnectDriver extends DucoDriver {
   ducoApi!: DucoApi
 
   async onInit() {
-    this.ducoApi = DucoApi.create(this.homey);
+    this.ducoApi = DucoApiFactory.create(this.homey);
 
     // init action card
     const changeVentilationStateAction = this.homey.flow.getActionCard('ducobox-silent-connect__change_ventilation_state');

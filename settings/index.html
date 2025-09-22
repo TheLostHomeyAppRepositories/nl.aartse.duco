@@ -23,6 +23,12 @@
         <span class="homey-form-checkbox-text" data-i18n="settings.use_https">Use https</label>
       </label>
 
+      <label class="homey-form-checkbox">
+        <input type="checkbox" id="useCommunicationPrintApiInput" class="homey-form-checkbox-input" />
+        <span class="homey-form-checkbox-checkmark"></span>
+        <span class="homey-form-checkbox-text" data-i18n="settings.use_communication_print_api">Use communication print api</label>
+      </label>
+
       <button id="searchButton" class="homey-button-secondary-shadow-full" data-i18n="settings.search">Search for Docuboxes</button>
       <br />
       <button id="saveButton" class="homey-button-primary-full" data-i18n="settings.save">Save changes</button>
@@ -39,6 +45,7 @@
       const searchView = document.getElementById("searchView");
       const hostnameInputElement = document.getElementById("hostnameInput");
       const useHttpsInputElement = document.getElementById("useHttpsInput");
+      const useCommunicationPrintApiInputElement = document.getElementById("useCommunicationPrintApiInput");
       const searchButtonElement = document.getElementById("searchButton");
       const cancelSearchButtonElement = document.getElementById("cancelSearchButton");
       const saveButtonElement = document.getElementById("saveButton");
@@ -62,6 +69,15 @@
           }
 
           useHttpsInputElement.checked = useHttps;
+        });
+
+        // init value for use communication print api checkbox
+        Homey.get("useCommunicationPrintApi", function (err, useCommunicationPrintApi) {
+          if (err) {
+            return Homey.alert(err);
+          }
+
+          useCommunicationPrintApiInputElement.checked = useCommunicationPrintApi;
         });
 
         // handle search button click
@@ -96,6 +112,7 @@
 
           Homey.set("hostname", hostnameInputElement.value, handleSaveCallback);
           Homey.set("useHttps", useHttpsInputElement.checked, handleSaveCallback);
+          Homey.set("useCommunicationPrintApi", useCommunicationPrintApiInputElement.checked, handleSaveCallback);
         });
       }
 
