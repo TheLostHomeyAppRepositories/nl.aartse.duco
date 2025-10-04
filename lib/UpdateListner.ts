@@ -1,10 +1,11 @@
 'use strict';
 
 import Homey from 'homey/lib/Homey';
-import DucoApi from './api/DucoApi';
+import DucoApi from './api/types/DucoApi';
 import NodeInterface from './api/types/NodeInterface';
 import NodeHelper from './NodeHelper';
 import DucoDriver from './homey/DucoDriver';
+import DucoApiFactory from './api/DucoApiFactory';
 
 let updateListener: UpdateListener|null = null;
 
@@ -18,7 +19,7 @@ export default class UpdateListener {
     updatingDevices: boolean
 
     constructor(homey: Homey) {
-        this.ducoApi = DucoApi.create(homey);
+        this.ducoApi = DucoApiFactory.create(homey);
         this.homey = homey;
         this.timeoutId = null;
         this.updatingDevices = false;

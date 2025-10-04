@@ -1,12 +1,13 @@
-import DucoApi from '../../lib/api/DucoApi';
+import DucoApi from '../../lib/api/types/DucoApi';
 import NodeHelper from '../../lib/NodeHelper';
 import DucoDriver from '../../lib/homey/DucoDriver';
+import DucoApiFactory from '../../lib/api/DucoApiFactory';
 
 class CO2BoxSensorDriver extends DucoDriver {
   ducoApi!: DucoApi
 
   async onInit() {
-    this.ducoApi = DucoApi.create(this.homey);
+    this.ducoApi = DucoApiFactory.create(this.homey);
   }
 
   async onPairListDevices() {
