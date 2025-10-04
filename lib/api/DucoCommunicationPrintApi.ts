@@ -15,6 +15,10 @@ export default class DucoCommunicationPrintApi implements DucoApi {
         this.httpClient = new HttpClient(homey);
     }
 
+    destroy() : void {
+        this.httpClient.destroy();
+    }
+
     async getNodes() : Promise<NodeInterface[]> {
         const response = await this.httpClient.get('/nodelist');
                 

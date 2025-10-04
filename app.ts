@@ -12,6 +12,9 @@ export default class DucoApp extends Homey.App {
 
   async onInit() {
     // init settings
+    if (this.homey.settings.get('apiType') === null) {
+      this.homey.settings.set('apiType', 'connectivity_board');
+    }
     if (this.homey.settings.get('hostname') === null) {
       this.homey.settings.set('hostname', '');
     }
@@ -19,11 +22,19 @@ export default class DucoApp extends Homey.App {
       this.homey.settings.set('useHttps', true);
     }
 
-    if (this.homey.settings.get('useCommunicationPrintApi') === null) {
-      this.homey.settings.set('useCommunicationPrintApi', false);
-    }
-
+    // init duco API
     this.ducoApi = DucoApiFactory.create(this.homey);
+
+    // reinit duco API when api type in settings is changed
+    const onSettingsChange = (field: any) => {
+        if ('apiType' === field) {
+            this.homey.log('apiType changed, reloading API');
+
+            DucoApiFactory.destroy();
+            this.ducoApi = DucoApiFactory.create(this.homey);
+        }
+    }
+    this.homey.settings.on('set', onSettingsChange);
 
     const updateListner = UpdateListener.create(this.homey);
     updateListner.startListener();

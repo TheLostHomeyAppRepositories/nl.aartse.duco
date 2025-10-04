@@ -3,20 +3,29 @@
 import Homey from 'homey/lib/Homey';
 import DucoApi from './types/DucoApi';
 import DucoCommunicationPrintApi from './DucoCommunicationPrintApi';
-import DucoRestApi from './DucoRestApi';
+import DucoConnectivityBoardApi from './DucoConnectivityBoardApi';
 
 let ducoApi: DucoApi|null = null;
 
 export default class DucoApiFactory {
     static create(homey: Homey): DucoApi {
       if (!ducoApi) {
-        const useCommunicationPrintApi = homey.settings.get('useCommunicationPrintApi');
+        const apiType = homey.settings.get('apiType');
 
-        ducoApi = useCommunicationPrintApi
+        homey.log('using API "'+apiType+'"');
+
+        ducoApi = 'communication_print' === apiType
           ? new DucoCommunicationPrintApi(homey)
-          : new DucoRestApi(homey);
+          : new DucoConnectivityBoardApi(homey);
       }
 
       return ducoApi;
+    }
+
+    static destroy() {
+      if (ducoApi) {
+        ducoApi.destroy();
+      }
+      ducoApi = null;
     }
 }

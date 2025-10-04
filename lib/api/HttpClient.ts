@@ -13,18 +13,22 @@ export default class HttpClient {
     constructor(homey: Homey) {
         this.homey = homey;
 
-        const onSettingsChange = (field: any) => {
-            if ('hostname' === field) {
-                this.hostname = this.homey.settings.get('hostname');
-            }
-            if ('useHttps' === field) {
-                this.useHttps = this.homey.settings.get('useHttps');
-            }
-        }
-
-        this.homey.settings.on('set', onSettingsChange);
+        this.homey.settings.on('set', this.onSettingsChange.bind(this));
         this.hostname = this.homey.settings.get('hostname');
         this.useHttps = this.homey.settings.get('useHttps');
+    }
+
+    destroy() : void {
+        this.homey.settings.off('set', this.onSettingsChange);
+    }
+
+    onSettingsChange (field: any) : void {
+        if ('hostname' === field) {
+            this.hostname = this.homey.settings.get('hostname');
+        }
+        if ('useHttps' === field) {
+            this.useHttps = this.homey.settings.get('useHttps');
+        }
     }
 
     get(path: string) : Promise <string> {

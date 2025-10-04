@@ -2,7 +2,7 @@
     "settings": {
         "title": "App configuratie",
         "hostname": "IP / Hostnaam DucoBox",
-        "hostname_hint": "Dit is het IP adres van de Connectivity Board op je lokale netwerk.",
+        "hostname_hint": "Dit is het IP adres of hostname van de DucoBox op je lokale netwerk.",
         "use_https": "Gebruik https",
         "use_communication_print_api": "Gebruik communication print api",
         "nothing_found": "Niets gevonden.",

@@ -6,12 +6,16 @@ import PostNodeAction from './types/PostNodeAction';
 import HttpClient from './HttpClient';
 import DucoApi from './types/DucoApi';
 
-export default class DucoRestApi implements DucoApi {
+export default class DucoConnectivityBoardApi implements DucoApi {
 
     httpClient: HttpClient
 
     constructor(homey: Homey) {
         this.httpClient = new HttpClient(homey);
+    }
+
+    destroy() : void {
+        this.httpClient.destroy();
     }
 
     getNodes() : Promise <NodeInterface[]> {

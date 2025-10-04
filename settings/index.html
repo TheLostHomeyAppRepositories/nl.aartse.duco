@@ -12,6 +12,15 @@
 
     <div id="mainView">
       <div class="homey-form-group">
+        <label class="homey-form-label" for="apiTypeSelect" data-i18n="settings.apiType">API</label>
+        <select class="homey-form-select" id="apiTypeSelect">
+          <option value="connectivity_board">Duco Connectivity Board</option>
+          <option value="communication_print">Duco Communication Print</option>
+        </select>
+        <p data-i18n="settings.api_hint"></p>
+      </div>
+
+      <div class="homey-form-group">
         <label class="homey-form-label" for="hostnameInput" data-i18n="settings.hostname">IP / Hostname Ducobox</label>
         <input class="homey-form-input" id="hostnameInput" type="text" value="" />
         <p data-i18n="settings.hostname_hint"></p>
@@ -21,12 +30,6 @@
         <input type="checkbox" id="useHttpsInput" class="homey-form-checkbox-input" />
         <span class="homey-form-checkbox-checkmark"></span>
         <span class="homey-form-checkbox-text" data-i18n="settings.use_https">Use https</label>
-      </label>
-
-      <label class="homey-form-checkbox">
-        <input type="checkbox" id="useCommunicationPrintApiInput" class="homey-form-checkbox-input" />
-        <span class="homey-form-checkbox-checkmark"></span>
-        <span class="homey-form-checkbox-text" data-i18n="settings.use_communication_print_api">Use communication print api</label>
       </label>
 
       <button id="searchButton" class="homey-button-secondary-shadow-full" data-i18n="settings.search">Search for Docuboxes</button>
@@ -43,15 +46,24 @@
     <script type="text/javascript">
       const mainView = document.getElementById("mainView");
       const searchView = document.getElementById("searchView");
+      const apiTypeSelectElement = document.getElementById("apiTypeSelect");
       const hostnameInputElement = document.getElementById("hostnameInput");
       const useHttpsInputElement = document.getElementById("useHttpsInput");
-      const useCommunicationPrintApiInputElement = document.getElementById("useCommunicationPrintApiInput");
       const searchButtonElement = document.getElementById("searchButton");
       const cancelSearchButtonElement = document.getElementById("cancelSearchButton");
       const saveButtonElement = document.getElementById("saveButton");
 
       function onHomeyReady(Homey) {
         Homey.ready();
+
+        // init value for api type input
+        Homey.get("apiType", function (err, apiType) {
+          if (err) {
+            return Homey.alert(err);
+          }
+
+          apiTypeSelectElement.value = apiType;
+        });
 
         // init value for hostname input
         Homey.get("hostname", function (err, hostname) {
@@ -69,15 +81,6 @@
           }
 
           useHttpsInputElement.checked = useHttps;
-        });
-
-        // init value for use communication print api checkbox
-        Homey.get("useCommunicationPrintApi", function (err, useCommunicationPrintApi) {
-          if (err) {
-            return Homey.alert(err);
-          }
-
-          useCommunicationPrintApiInputElement.checked = useCommunicationPrintApi;
         });
 
         // handle search button click
@@ -98,7 +101,7 @@
 
         // handle save button click
         saveButtonElement.addEventListener("click", function (e) {
-          var saveCount = 2;
+          var saveCount = 3;
           function handleSaveCallback(err) {
             if (err) {
               return Homey.alert(err);
@@ -110,9 +113,9 @@
             }
           }
 
+          Homey.set("apiType", apiTypeSelectElement.value, handleSaveCallback);
           Homey.set("hostname", hostnameInputElement.value, handleSaveCallback);
           Homey.set("useHttps", useHttpsInputElement.checked, handleSaveCallback);
-          Homey.set("useCommunicationPrintApi", useCommunicationPrintApiInputElement.checked, handleSaveCallback);
         });
       }
 
