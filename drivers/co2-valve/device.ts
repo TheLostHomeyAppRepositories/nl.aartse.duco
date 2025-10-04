@@ -1,17 +1,14 @@
 import DucoDevice from '../../lib/homey/DucoDevice';
 import NodeInterface from '../../lib/api/types/NodeInterface';
-import DucoApi from '../../lib/api/DucoApi';
 import DucoBoxCapabilityValues from '../../lib/types/DucoBoxCapabilityValues';
 import FlowHelper from '../../lib/FlowHelper';
 import UpdateListener from '../../lib/UpdateListner';
 import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
+import DucoApiFactory from '../../lib/api/DucoApiFactory';
 
 class CO2ValveDevice extends DucoDevice {
-  ducoApi!: DucoApi
-
   async onInit() {
     await this.initCapabilities();
-    this.ducoApi = DucoApi.create(this.homey);
   }
 
   async initCapabilities() {
@@ -46,7 +43,7 @@ class CO2ValveDevice extends DucoDevice {
     this.registerCapabilityListener('ventilation_state', (value) => {
       this.homey.log(`ventilation_state capability has been changed to ${value}`);
 
-      return this.ducoApi.postNodeAction(this.getData().id, {
+      return DucoApiFactory.create(this.homey).postNodeAction(this.getData().id, {
         Action: NodeActionEnum.SetVentilationState,
         Val: value
       }).then(() => {

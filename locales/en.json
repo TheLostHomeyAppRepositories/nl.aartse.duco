@@ -4,6 +4,7 @@
         "hostname": "IP / Hostname DucoBox",
         "hostname_hint": "This is the IP address of the Connectivity Board on your local network.",
         "use_https": "Use https",
+        "use_communication_print_api": "Use communication print api",
         "nothing_found": "Nothing found.",
         "name": "Name",
         "url": "URL",

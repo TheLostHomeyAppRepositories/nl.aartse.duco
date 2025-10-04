@@ -1,19 +1,15 @@
-import DucoApi from '../../lib/api/DucoApi';
 import NodeHelper from '../../lib/NodeHelper';
 import DucoDriver from '../../lib/homey/DucoDriver';
 import UpdateListener from '../../lib/UpdateListner';
 import NodeActionEnum from '../../lib/api/types/NodeActionEnum';
+import DucoApiFactory from '../../lib/api/DucoApiFactory';
 
 class DucoboxSilentConnectDriver extends DucoDriver {
-  ducoApi!: DucoApi
-
   async onInit() {
-    this.ducoApi = DucoApi.create(this.homey);
-
     // init action card
     const changeVentilationStateAction = this.homey.flow.getActionCard('ducobox-silent-connect__change_ventilation_state');
     changeVentilationStateAction.registerRunListener((args, state) => {
-      return this.ducoApi.postNodeAction(args.device.getData().id, {
+      return DucoApiFactory.create(this.homey).postNodeAction(args.device.getData().id, {
         Action: NodeActionEnum.SetVentilationState,
         Val: args.ventilation_state
       }).then(() => {
@@ -45,7 +41,7 @@ class DucoboxSilentConnectDriver extends DucoDriver {
 
   async onPairListDevices() {
     // get nodes and filter the nodes that can be handled by this driver
-    const nodes = (await this.ducoApi.getNodes()).filter(node => NodeHelper.isMappedForDriver(node.General.Type.Val, 'ducobox-silent-connect'));
+    const nodes = (await DucoApiFactory.create(this.homey).getNodes()).filter(node => NodeHelper.isMappedForDriver(node.General.Type.Val, 'ducobox-silent-connect'));
 
     // convert each node to a homey device
     return nodes.map(node => {

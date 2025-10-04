@@ -4,10 +4,9 @@ import Homey from 'homey/lib/Homey';
 import NodeInterface from './types/NodeInterface';
 import PostNodeAction from './types/PostNodeAction';
 import HttpClient from './HttpClient';
+import DucoApi from './types/DucoApi';
 
-let ducoApi: DucoApi|null = null;
-
-export default class DucoApi {
+export default class DucoConnectivityBoardApi implements DucoApi {
 
     httpClient: HttpClient
 
@@ -15,12 +14,8 @@ export default class DucoApi {
         this.httpClient = new HttpClient(homey);
     }
 
-    static create(homey: Homey) {
-        if (null === ducoApi) {
-            ducoApi = new DucoApi(homey);
-        }
-
-        return ducoApi;
+    destroy() : void {
+        this.httpClient.destroy();
     }
 
     getNodes() : Promise <NodeInterface[]> {
@@ -34,7 +29,9 @@ export default class DucoApi {
                         return reject(new Error('Error obtaining nodes.'));
                     }
                 })
-                .catch(error => reject(error));
+                .catch(error => {
+                    reject(error);
+                });
         });
     }
 

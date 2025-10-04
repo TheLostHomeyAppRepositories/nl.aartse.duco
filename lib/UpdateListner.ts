@@ -1,31 +1,29 @@
 'use strict';
 
 import Homey from 'homey/lib/Homey';
-import DucoApi from './api/DucoApi';
 import NodeInterface from './api/types/NodeInterface';
 import NodeHelper from './NodeHelper';
 import DucoDriver from './homey/DucoDriver';
+import DucoApiFactory from './api/DucoApiFactory';
 
 let updateListener: UpdateListener|null = null;
 
 export default class UpdateListener {
 
     refreshInterval: number = 60000
-    ducoApi: DucoApi
     homey: Homey
     timeoutId: any
     initTimeoutId: any
     updatingDevices: boolean
 
     constructor(homey: Homey) {
-        this.ducoApi = DucoApi.create(homey);
         this.homey = homey;
         this.timeoutId = null;
         this.updatingDevices = false;
 
         const onSettingsChange = (field: any) => {
-            if ('hostname' === field) {
-                // restart listener with a timeout to make sure the hostname is changed
+            if ('apiType' === field || 'hostname' === field || 'useHttps' === field) {
+                // restart listener with a timeout to make sure the settings are changed
                 this.startListener(1000);
             }
         }
@@ -79,7 +77,7 @@ export default class UpdateListener {
         }
         this.updatingDevices = true;
 
-        this.ducoApi.getNodes().then(nodes => {
+        DucoApiFactory.create(this.homey).getNodes().then(nodes => {
             this.updatingDevices = false;
 
             nodes.forEach((node: NodeInterface) => {
