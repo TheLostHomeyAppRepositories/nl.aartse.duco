@@ -1,1 +1,1 @@
-With this app you can connect the DucoBox Silent Connect to homey using the Connectivity Board.
+With this app you can connect the DucoBox to Homey using the DUCO Connectivity Board (v1 and v2) or the DUCO Communication Print.

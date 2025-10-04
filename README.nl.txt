@@ -1,1 +1,1 @@
-Met deze app kan je de DucoBox Silent Connect koppelen aan homey dmv de Connectivity Board.
+Met deze app kan je de DucoBox koppelen aan homey dmv de DUCO Connectivity Board (v1 en v2) of met de DUCO Communication Print.
