@@ -43,5 +43,8 @@
   },
   "1.12.0": {
     "en": "Added support for the connectivity board"
+  },
+  "1.12.1": {
+    "en": "Added support for the communication print"
   }
 }
